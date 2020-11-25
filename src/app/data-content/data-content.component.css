@@ -64,3 +64,9 @@ li::before {
 .w-30{
     width: 24%;
 }
+.w-5{
+    width: 5%;
+}
+.f-size{
+    font-size: 1.5rem;
+}
