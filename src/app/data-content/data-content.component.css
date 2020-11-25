@@ -16,7 +16,7 @@ li{
 }
 .carousel-content {
     position: absolute;
-    bottom: 15%;
+    bottom: 20%;
     left: 15%;
     z-index: 20;
     color: white;
@@ -28,4 +28,39 @@ li{
 }
 .opac-0{
       opacity: 0;
+}
+.shadow{
+    box-shadow: 3px 3px 5px 6px #ccc;
+    padding: 10px;
+    background: whitesmoke;
+    z-index: 1000;
+    margin-top: -3rem;
+}
+.splitWords{
+    word-spacing: 1rem;
+}
+legend{
+    margin: 0px auto;;
+}
+fieldset{
+    border: 20px solid lightgray;
+}
+.carousel-inner{
+    z-index: -1;
+}
+.bg-black{
+    background: black;
+}
+ul {
+    position: relative;
+    list-style: none;
+}  
+li::before {
+   content: '▶';
+   position: absolute;
+   left: 2rem;
+   color: lightgray;
+ }
+.w-30{
+    width: 24%;
 }
