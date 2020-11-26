@@ -51,11 +51,11 @@ fieldset{
 .bg-black{
     background: black;
 }
-ul {
+.addContent {
     position: relative;
     list-style: none;
 }  
-li::before {
+.addContent > li::before {
    content: '▶';
    position: absolute;
    left: 2rem;
