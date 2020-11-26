@@ -10,6 +10,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatCardModule} from '@angular/material/card';
 import { LoginComponent } from './login/login.component';
 import { LoginHeaderComponent } from './login-header/login-header.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { LoginHeaderComponent } from './login-header/login-header.component';
     HeaderComponent,
     DataContentComponent,
     LoginComponent,
-    LoginHeaderComponent
+    LoginHeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
