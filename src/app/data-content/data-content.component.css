@@ -46,7 +46,7 @@ fieldset{
     border: 20px solid lightgray;
 }
 .carousel-inner{
-    z-index: -1;
+    z-index: auto;
 }
 .bg-black{
     background: black;
@@ -69,4 +69,15 @@ fieldset{
 }
 .f-size{
     font-size: 1.5rem;
+}
+.opaci-0{
+    opacity: 0;
+}
+@media (min-width: 576px) { 
+    .opaci-0 {
+        opacity: 1;
+    }
+    .carousel-inner{
+        z-index: -1;
+    }
 }
