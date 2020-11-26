@@ -1,0 +1,12 @@
+.smallFlag{
+    max-height: 24px;
+    max-width: 24px;
+    width: 20px;
+    height: 16px;
+}
+ul{
+    list-style: none;
+}
+ul > li {
+    float: left;
+}

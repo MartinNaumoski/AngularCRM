@@ -7,13 +7,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import { DataContentComponent } from './data-content/data-content.component';
 import { MatSliderModule } from '@angular/material/slider';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule} from '@angular/material/card';
+import { LoginComponent } from './login/login.component';
+import { LoginHeaderComponent } from './login-header/login-header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    DataContentComponent
+    DataContentComponent,
+    LoginComponent,
+    LoginHeaderComponent
   ],
   imports: [
     BrowserModule,
