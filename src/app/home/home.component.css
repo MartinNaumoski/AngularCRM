@@ -1,0 +1,29 @@
+.smallFlag{
+    max-height: 24px;
+    max-width: 24px;
+    width: 20px;
+    height: 16px;
+}
+ul{
+    list-style: none;
+}
+ul > li {
+    float: left;
+}
+.fa-bars{
+    cursor: pointer;
+}
+.animation-in {
+    width: 220px;
+    height: 100%;
+    transition: all 0.5s ease-in-out;
+
+}
+.animation-out{
+    width: 45px;
+    height: 100%;
+    transition: all 0.5s ease-in-out;
+}
+.animation-out > a > span{
+    display: none;
+}

@@ -7,7 +7,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<nav class="navbar navbar-inverse bg-info text-light">
+<nav class="navbar navbar-inverse bg-info text-light" *ngIf ="adminPanelFlag"> 
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="text-light h5" href="#">Panel</a>
@@ -37,6 +37,34 @@
     </div>
 </nav>
 
+<nav class="navbar navbar-inverse bg-info text-light" *ngIf ="!adminPanelFlag">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <span class="fa fa-fw fa-bars mr-2" (click)="toogleSideBar()"></span>
+            <a class="text-light h5" href="#">Admin panel</a>
+        </div>
+
+        <ul class="nav  navbar-right">
+            <li><a href="#"></a></li>
+            <li>
+                <a href="#">
+                    <img class="smallFlag mr-2"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Flag_of_Albania.svg/2000px-Flag_of_Albania.svg.png">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img class="smallFlag mr-2"
+                        src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1280px-Flag_of_the_United_Kingdom.svg.png">
+                </a>
+            </li>
+            <li class="mr-2 h5">
+                <a routerLink="/login" class="text-white"> Logout</a>
+            </li>
+
+        </ul>
+    </div>
+</nav>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>
