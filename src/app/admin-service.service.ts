@@ -12,7 +12,7 @@ export class AdminServiceService {
   constructor(private router: Router) { }
   adminHeader() {
     let href = this.router.url;
-    href == "/login" ? this.adminPanelFlag = true : this.adminPanelFlag = false;
+    href == "/login" || href == "/register"? this.adminPanelFlag = true : this.adminPanelFlag = false;
     return this.adminPanelFlag;
   }
  

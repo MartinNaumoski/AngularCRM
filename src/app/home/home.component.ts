@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  toogleSideBar(evt) {
+  toogleSideBar(event: any) {
     let sideBar = document.getElementById("mySidebar");
     if (sideBar != null) {
       if (sideBar.classList.contains("animation-in")) {

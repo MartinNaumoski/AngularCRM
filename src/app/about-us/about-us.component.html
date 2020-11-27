@@ -1,1 +1,32 @@
-<p>about-us works!</p>
+<head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<app-login-header (notifyParent)="toogleSideBar($event)"></app-login-header>
+<div class="w3-sidebar w3-bar-block text-white bg-dark animation-in" id="mySidebar">
+    <a href="#" class="w3-bar-item w3-button"><i class="fa fa-th-large"></i><span class="link-out">Dashboard</span></a>
+    <a href="#" class="w3-bar-item w3-button"><i class="fa fa-eye mr-1"></i><span>Webpage</span></a>
+    <a href="#" class="w3-bar-item w3-button"><i class="fa fa-table mr-1"></i><span>Articles</span></a>
+    <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope mr-1"></i><span>Contact</span></a>
+    <a routerLink="/about-us" class="w3-bar-item w3-button"><i class="fa fa-info mr-1"></i><span>About content</span></a>
+</div>
+
+<main class="py-4">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-11">
+                <div class="card">
+                    <div class="card-header">
+                        About
+                    </div>
+                    <div class="card-body">
+                        <label class="font-weight-bold">Title:</label>
+                        <input class="form-control" value="ABOUT US">
+                        <label class="font-weight-bold mt-3">Body:</label>
+                        <textarea class="form-control" rows="6"></textarea>
+                        <button class="btn btn-primary  py-2 px-4 rounded-0 mt-3">Update</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
