@@ -22,5 +22,10 @@ export class LoginHeaderComponent implements OnInit {
   toogleSideBar() {
     this.notifyParent.emit('Some value to send to the parent');
   }
+  logOut(){
+    localStorage.removeItem('token');
+    this.router.navigate(['/']);
+
+  }
 
 }

@@ -17,8 +17,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   login() {
-    console.log(this.email)
-    console.log(this.password)
     this.loginService.login(this.email, this.password).subscribe(data => {
       localStorage.setItem('token',data.access_token);
       this.router.navigate(['/home']);
