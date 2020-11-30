@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UseExistingWebDriver } from 'protractor/built/driverProviders';
+import { AdminServiceService } from '../../app/admin-service.service'
 
 @Component({
   selector: 'app-contact-us',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactUsComponent implements OnInit {
 
-  constructor() { }
+  contactData :any;
+  constructor(private adminService: AdminServiceService) { }
 
   ngOnInit(): void {
+    this.adminService.getContacts().subscribe( data => {
+      console.log(data)
+      this.contactData = data["Contact-Us"];
+      console.log(this.contactData)
+    })
   }
   toogleSideBar(event: any) {
     let sideBar = document.getElementById("mySidebar");
