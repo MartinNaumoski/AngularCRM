@@ -14,7 +14,6 @@ export class ContactUsComponent implements OnInit {
 
   ngOnInit(): void {
     this.adminService.getContacts().subscribe( data => {
-      console.log(data)
       this.contactData = data["Contact-Us"];
       console.log(this.contactData)
     })

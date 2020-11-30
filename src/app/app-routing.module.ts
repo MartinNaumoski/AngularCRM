@@ -9,10 +9,10 @@ import { AriclesComponent } from './aricles/aricles.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AuthGuard } from './auth.guard'
 const routes: Routes = [
-  {
-    path: '',
-    component:LoginComponent
-  },
+  // {
+  //   path: '',
+  //   component:LoginComponent
+  // },
   {
     path: 'login',
     component: LoginComponent,
