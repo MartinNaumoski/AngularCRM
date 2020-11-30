@@ -1,5 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +12,14 @@ import { LoginHeaderComponent } from './login-header/login-header.component';
 import { HomeComponent } from './home/home.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { RegisterComponent } from './register/register.component';
+import { SideBarComponent } from './side-bar/side-bar.component';
+import { AriclesComponent } from './aricles/aricles.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule }      from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { AuthGuard } from './auth.guard'
 
 @NgModule({
   declarations: [
@@ -23,7 +30,10 @@ import { RegisterComponent } from './register/register.component';
     LoginHeaderComponent,
     HomeComponent,
     AboutUsComponent,
-    RegisterComponent
+    RegisterComponent,
+    SideBarComponent,
+    AriclesComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,
@@ -31,9 +41,11 @@ import { RegisterComponent } from './register/register.component';
     BrowserAnimationsModule,
     MatSliderModule,
     MatCardModule,
-
+    HttpClientModule,
+    BrowserModule, 
+    FormsModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
