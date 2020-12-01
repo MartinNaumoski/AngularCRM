@@ -1,20 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { UseExistingWebDriver } from 'protractor/built/driverProviders';
 import { AdminServiceService } from '../../app/admin-service.service'
+import { ActivatedRoute } from '@angular/router'
+import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-contact-us',
-  templateUrl: './contact-us.component.html',
-  styleUrls: ['./contact-us.component.css']
+  selector: 'app-detail-article',
+  templateUrl: './detail-article.component.html',
+  styleUrls: ['./detail-article.component.css']
 })
-export class ContactUsComponent implements OnInit {
-
-  contactData :any;
-  constructor(private adminService: AdminServiceService) { }
+export class DetailArticleComponent implements OnInit {
+  articleData = [];
+  private routeSub!: Subscription;
+  id = 0;
+  constructor(private adminService: AdminServiceService,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.adminService.getContacts().subscribe( data => {
-      this.contactData = data["Contact-Us"];
+
+    this.routeSub = this.route.params.subscribe(params => {
+      this.id = params['id'];
+    });
+    this.adminService.getDetailArticle(this.id).subscribe(data=> {
+      this.articleData = data.Article;
+    },error => {
+      console.log(error)
     })
   }
   toogleSideBar(event: any) {
@@ -33,5 +41,8 @@ export class ContactUsComponent implements OnInit {
         adminPanel.style.display = "block";
       }
     }
+  }
+  ngOnDestroy() {
+    this.routeSub.unsubscribe();
   }
 }

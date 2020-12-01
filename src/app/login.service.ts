@@ -11,10 +11,14 @@ export class LoginService {
 
   constructor(private http:HttpClient) { }
 
-  login(user,password): Observable<any> {
+  login(user:any,password:any): Observable<any> {
     return this.http.post(this.baseUrl + '/api/auth/login',{email:user,password});
   }
   getToken(){
     return localStorage.getItem('token');
+  }
+  registerUser(user:any){
+    console.log(user)
+    return this.http.post(this.baseUrl + '/api/auth/register',user)
   }
 }

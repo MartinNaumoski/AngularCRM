@@ -39,14 +39,17 @@ export class AboutUsComponent implements OnInit {
   }
   toogleSideBar(event: any) {
     let sideBar = document.getElementById("mySidebar");
-    if (sideBar != null) {
+    let adminPanel = document.getElementById("adminPanel");
+    if (sideBar != null && adminPanel != null) {
       if (sideBar.classList.contains("animation-in")) {
         sideBar.classList.add("animation-out");
         sideBar.classList.remove("animation-in");
+        adminPanel.style.display = "none";
       }
       else {
         sideBar.classList.add("animation-in");
         sideBar.classList.remove("animation-out");
+        adminPanel.style.display = "block";
       }
     }
   }

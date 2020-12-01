@@ -7,12 +7,17 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { RegisterComponent } from './register/register.component';
 import { AriclesComponent } from './aricles/aricles.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
-import { AuthGuard } from './auth.guard'
+import { AuthGuard } from './auth.guard';
+import { DetailArticleComponent } from './detail-article/detail-article.component'
 const routes: Routes = [
   // {
   //   path: '',
   //   component:LoginComponent
   // },
+  {
+    path:'property/:id',
+    component: DetailArticleComponent,
+  },
   {
     path: 'login',
     component: LoginComponent,

@@ -22,6 +22,7 @@ import { FormsModule } from '@angular/forms';
 import { AuthGuard } from './auth.guard'
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './token.interceptor';
+import { DetailArticleComponent } from './detail-article/detail-article.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { TokenInterceptor } from './token.interceptor';
     RegisterComponent,
     SideBarComponent,
     AriclesComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    DetailArticleComponent
   ],
   imports: [
     BrowserModule,

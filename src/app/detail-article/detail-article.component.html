@@ -1,0 +1,63 @@
+<app-login-header (notifyParent)="toogleSideBar($event)"></app-login-header>
+<app-side-bar></app-side-bar>
+<main class="py-4">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-11">
+                <div class="card" *ngIf="articleData">
+                    <div class="card-header">
+                       Title: {{articleData.title}}
+                    </div>
+                    <div class="card-footer">
+                        ID: {{articleData.id}}
+                     </div>
+                     <div class="card-footer">
+                        Name: {{articleData.name}}
+                     </div>
+                     <div class="card-footer">
+                        Body: {{articleData.body}}
+                     </div>
+                     <div class="card-footer">
+                        City: {{articleData.city}}
+                     </div>
+                     <div class="card-footer">
+                        Adress: center
+                     </div>
+                     <div class="card-footer">
+                        For: {{articleData.for}}
+                     </div>
+                     <div class="card-footer">
+                        Price: {{articleData.price}}
+                     </div>
+                     <div class="card-footer">
+                        Views: {{articleData.views}}
+                     </div>
+                     <div class="card-footer">
+                        Type: {{articleData.type}}
+                     </div>
+                     <div class="card-footer">
+                        Available: {{articleData.available}}
+                     </div>
+                     <div class="card-footer">
+                        Number: {{articleData.phonenumber}}
+                     </div>
+                     <div class="card-footer">
+                        Created: {{articleData.created_at}}
+                     </div>
+                     <div class="card-footer">
+                        Updated: {{articleData.updated_at}}
+                     </div>
+                </div>
+                <div class="card" *ngIf="!articleData">
+                    <div class="card-body">
+                      
+                        <p>
+                            It is empty!
+                        </p>
+                    </div>
+                </div>
+                <a class="btn btn-secondary mt-2" routerLink="/articles"><i class="fa fa-arrow-left"></i>Back</a>
+            </div>
+        </div>
+    </div>
+</main>

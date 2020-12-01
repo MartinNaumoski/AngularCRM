@@ -31,4 +31,8 @@ export class AdminServiceService {
   getContacts():Observable<any>{
     return this.http.get(this.baseUrl + '/api/contact-us')
   }
+  getDetailArticle(id:any):Observable<any>{
+    console.log(this.baseUrl + '/api/article/property' + id)
+    return this.http.get(this.baseUrl + '/api/article/property/' + id)
+  }
 }
