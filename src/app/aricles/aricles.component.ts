@@ -9,16 +9,24 @@ import { Router } from '@angular/router'
 export class AriclesComponent implements OnInit {
 
   tableData = []
-  constructor(private adminService: AdminServiceService,private router: Router) { }
+  constructor(private adminService: AdminServiceService, private router: Router) { }
 
   ngOnInit(): void {
+    this.getArticles();
+  }
+  getArticles() {
     this.adminService.getArticles().subscribe(data => {
       this.tableData = data.Articles;
-    },error => {
+      console.log(this.tableData)
+    }, error => {
     })
   }
-  viewDetails(id:any  ){
-    this.router.navigate(['property'+'/'+id]);
+  viewDetails(id: any) {
+    this.router.navigate(['property' + '/' + id]);
+  }
+  deleteArticle(id: any) {
+    this.adminService.deleteArticle(id).subscribe();
+    this.getArticles();
   }
   toogleSideBar(event: any) {
     let sideBar = document.getElementById("mySidebar");

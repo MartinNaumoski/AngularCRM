@@ -1,0 +1,116 @@
+<app-login-header (notifyParent)="toogleSideBar($event)"></app-login-header>
+<app-side-bar></app-side-bar>
+<main class="py-4">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-11 pb-5">
+                <div class="card border-primary rounded-0">
+                    <div class="card-header p-0">
+                        <div class="bg-info text-white text-center py-2">
+                            <h1><strong>Create Article</strong></h1>
+                        </div>
+                    </div>
+                    <div class="card-body p-3">
+                        <div class="form-group">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text text-primary font-weight-bold">Title</div>
+                                </div>
+                                <input class="form-control" type="text" placeholder="Title" [(ngModel)]="article.title"> 
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text text-primary font-weight-bold">Body</div>
+                                </div>
+                                <textarea class="form-control" type="text" rows="10" [(ngModel)]="article.body"> </textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text text-primary font-weight-bold">Create</div>
+                                </div>
+                                <select name="city" class="form-control" [(ngModel)]="article.city">
+                                    <option value="Gjakove">Gjakove</option>
+                                    <option value="Prishtine">Prishtine</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text text-primary font-weight-bold">Address</div>
+                                </div>
+                                <input class="form-control" type="text" placeholder="Address" [(ngModel)]="article.address"> 
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text text-primary font-weight-bold">For</div>
+                                </div>
+                                <select name="city" class="form-control" [(ngModel)]="article.for">
+                                    <option value="both">Both</option>
+                                    <option value="sale">Sale</option>
+                                    <option value="rent">Rent</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text text-primary font-weight-bold">Price</div>
+                                </div>
+                                <input class="form-control" type="tenumber" placeholder="e.g. 200" [(ngModel)]="article.price"> 
+                                <div class="input-group-append">
+                                    <span class="input-group-text">$</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text text-primary font-weight-bold">Type</div>
+                                </div>
+                                <select name="city" class="form-control" [(ngModel)]="article.type">
+                                    <option value="1+1">1+1</option>
+                                    <option value="2+1">2+1</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text text-primary font-weight-bold">Avalible</div>
+                                </div>
+                                <select name="city" class="form-control" [(ngModel)]="article.avalible">
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text text-primary font-weight-bold">Number</div>
+                                </div>
+                                <input class="form-control" type="tenumber" placeholder="Phone number" [(ngModel)]="article.phone_number"> 
+                    
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group mb-2">
+                                <input class="form-control" type="file" multiple="multiple"> 
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-info btn-block rounded-0 py-2" (click)="createArticle()">Create</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main> 

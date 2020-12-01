@@ -22,7 +22,7 @@ export class AdminServiceService {
     return this.http.get(this.baseUrl + '/api/aboutus');
   }
   updateAboutUs(body:any): Observable<any> {
-    return this.http.put(this.baseUrl + '/update/about-us', JSON.stringify(body));
+    return this.http.put<any>(this.baseUrl + '/api/update/about-us', body);
   }
   getArticles(): Observable<any> {
     return this.http.get(this.baseUrl + '/api/articles');
@@ -39,4 +39,12 @@ export class AdminServiceService {
   deleteContact(id:any):Observable<any>{
     return this.http.delete(this.baseUrl + '/api/contact/delete/'+id)
   }
+  createArticle(body:any):Observable<any>{
+    return this.http.post(this.baseUrl + '/api/create-article',body)
+  }
+  deleteArticle(id:any):Observable<any>{
+    return this.http.delete(this.baseUrl + '/api/article/delete/'+id)
+  }
+
+
 }

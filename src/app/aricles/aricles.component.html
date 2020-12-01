@@ -12,7 +12,7 @@
           </div>
           <div class="container">
             <div class="card-body">
-              <button class="btn btn-primary mt-2 mb-2 float-right">Create</button>
+              <button class="btn btn-primary mt-2 mb-2 float-right" routerLink = '/create-article'>Create</button>
               <table class="table table-bordered">
                 <thead>
                   <tr>
@@ -39,7 +39,7 @@
                     <td>
                       <i (click)="viewDetails(td.id)" class="fa fa-eye text-success mr-1"></i>
                       <i class="fa fa-pencil text-primary mr-1"></i>
-                      <i class="fa fa-trash text-danger"></i>
+                      <i (click)="deleteArticle(td.id)" class="fa fa-trash text-danger"></i>
                     </td>
                   </tr>
 

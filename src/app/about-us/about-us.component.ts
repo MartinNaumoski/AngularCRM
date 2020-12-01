@@ -6,7 +6,7 @@ import { AdminServiceService } from '../admin-service.service';
   styleUrls: ['./about-us.component.css']
 })
 export class AboutUsComponent implements OnInit {
-  aboutUsData = [];
+  aboutUsData :any= [];
   title = '';
   body = '';
   constructor(private mainService: AdminServiceService) { }
@@ -18,22 +18,20 @@ export class AboutUsComponent implements OnInit {
   getAbousUsData(){
     this.mainService.getAboutUsData().subscribe((data) => {
       this.aboutUsData = data; 
-      this.title = this.aboutUsData["About us"].title;
+      this.title = this.aboutUsData["About us"].title; 
       this.body = this.aboutUsData["About us"].body;
     });
-    let bodyObj = {
-      "title":this.title,
-      "body":this.body
-    }
-    this.mainService.updateAboutUs(bodyObj);
+
 
   }
-  updateAboutUs(title,body){
+  updateAboutUs(title:any,body:any){
     let bodyObj = {
-      "title":title,
-      "body":body,
+      title:title,
+      body:body,
     }
-    this.mainService.updateAboutUs(bodyObj).subscribe();
+    this.mainService.updateAboutUs(bodyObj).subscribe(data => {
+      console.log(data)
+    });
   }
   toogleSideBar(event: any) {
     let sideBar = document.getElementById("mySidebar");
