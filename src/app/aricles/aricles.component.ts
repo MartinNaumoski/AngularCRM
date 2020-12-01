@@ -14,13 +14,10 @@ export class AriclesComponent implements OnInit {
   ngOnInit(): void {
     this.adminService.getArticles().subscribe(data => {
       this.tableData = data.Articles;
-      console.log(this.tableData)
     },error => {
-      console.log("Ova e errorot: " );
-      console.log(error)
     })
   }
-  viewDetails(id  ){
+  viewDetails(id:any  ){
     this.router.navigate(['property'+'/'+id]);
   }
   toogleSideBar(event: any) {

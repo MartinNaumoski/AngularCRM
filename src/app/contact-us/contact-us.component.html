@@ -34,9 +34,8 @@
                                     <td>{{td.created_at}}</td>
         
                                     <td>
-                                      <i class="fa fa-eye text-success mr-1"></i>
-                                      <i class="fa fa-pencil text-primary mr-1"></i>
-                                      <i class="fa fa-trash text-danger"></i>
+                                      <i (click)="viewDetails(td.id)" class="fa fa-eye text-success mr-1"></i>
+                                      <i (click)="deleteContact(td.id)" class="fa fa-trash text-danger"></i>
                                     </td>
                                   </tr>
                 

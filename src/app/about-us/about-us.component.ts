@@ -20,7 +20,6 @@ export class AboutUsComponent implements OnInit {
       this.aboutUsData = data; 
       this.title = this.aboutUsData["About us"].title;
       this.body = this.aboutUsData["About us"].body;
-      console.log(this.aboutUsData);
     });
     let bodyObj = {
       "title":this.title,
@@ -30,7 +29,6 @@ export class AboutUsComponent implements OnInit {
 
   }
   updateAboutUs(title,body){
-    console.log("Function is called!");
     let bodyObj = {
       "title":title,
       "body":body,

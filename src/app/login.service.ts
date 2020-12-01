@@ -18,7 +18,6 @@ export class LoginService {
     return localStorage.getItem('token');
   }
   registerUser(user:any){
-    console.log(user)
     return this.http.post(this.baseUrl + '/api/auth/register',user)
   }
 }

@@ -21,8 +21,6 @@ export class RegisterComponent implements OnInit {
 
   registerUser() {
     this.loginService.registerUser(this.user).subscribe(data => {}, error => {
-      console.log("OVa e erorot")
-      console.log(error)
       this.error = error.error.message;
     });
   }

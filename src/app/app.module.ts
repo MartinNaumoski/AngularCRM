@@ -23,6 +23,7 @@ import { AuthGuard } from './auth.guard'
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './token.interceptor';
 import { DetailArticleComponent } from './detail-article/detail-article.component';
+import { ContatDetailsComponent } from './contat-details/contat-details.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { DetailArticleComponent } from './detail-article/detail-article.componen
     SideBarComponent,
     AriclesComponent,
     ContactUsComponent,
-    DetailArticleComponent
+    DetailArticleComponent,
+    ContatDetailsComponent
   ],
   imports: [
     BrowserModule,

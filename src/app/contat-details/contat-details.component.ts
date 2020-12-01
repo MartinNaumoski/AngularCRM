@@ -4,24 +4,23 @@ import { ActivatedRoute } from '@angular/router'
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-detail-article',
-  templateUrl: './detail-article.component.html',
-  styleUrls: ['./detail-article.component.css']
+  selector: 'app-contat-details',
+  templateUrl: './contat-details.component.html',
+  styleUrls: ['./contat-details.component.css']
 })
-export class DetailArticleComponent implements OnInit {
-  articleData = [];
+export class ContatDetailsComponent implements OnInit {
+  contactData = [];
   private routeSub!: Subscription;
   id = 0;
   constructor(private adminService: AdminServiceService,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-
     this.routeSub = this.route.params.subscribe(params => {
       this.id = params['id'];
     });
-    this.adminService.getDetailArticle(this.id).subscribe(data=> {
-      this.articleData = data.Article;
-    },error => {
+    this.adminService.getDetailContact(this.id).subscribe(data => {
+      this.contactData = data.Contact;
+    }, error => {
     })
   }
   toogleSideBar(event: any) {
@@ -40,8 +39,5 @@ export class DetailArticleComponent implements OnInit {
         adminPanel.style.display = "block";
       }
     }
-  }
-  ngOnDestroy() {
-    this.routeSub.unsubscribe();
   }
 }

@@ -21,8 +21,7 @@ export class AdminServiceService {
   getAboutUsData(): Observable<any> {
     return this.http.get(this.baseUrl + '/api/aboutus');
   }
-  updateAboutUs(body): Observable<any> {
-    let url = this.baseUrl + '/update/about-us';
+  updateAboutUs(body:any): Observable<any> {
     return this.http.put(this.baseUrl + '/update/about-us', JSON.stringify(body));
   }
   getArticles(): Observable<any> {
@@ -32,7 +31,12 @@ export class AdminServiceService {
     return this.http.get(this.baseUrl + '/api/contact-us')
   }
   getDetailArticle(id:any):Observable<any>{
-    console.log(this.baseUrl + '/api/article/property' + id)
     return this.http.get(this.baseUrl + '/api/article/property/' + id)
+  }
+  getDetailContact(id:any):Observable<any>{
+    return this.http.get(this.baseUrl + '/api/contact/' + id)
+  }
+  deleteContact(id:any):Observable<any>{
+    return this.http.delete(this.baseUrl + '/api/contact/delete/'+id)
   }
 }
