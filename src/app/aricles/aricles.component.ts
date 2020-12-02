@@ -8,7 +8,10 @@ import { Router } from '@angular/router'
 })
 export class AriclesComponent implements OnInit {
 
-  tableData = []
+  tableData = [];
+  searchTerm = '';
+  allTableData:any = [];
+
   constructor(private adminService: AdminServiceService, private router: Router) { }
 
   ngOnInit(): void {
@@ -17,16 +20,34 @@ export class AriclesComponent implements OnInit {
   getArticles() {
     this.adminService.getArticles().subscribe(data => {
       this.tableData = data.Articles;
-      console.log(this.tableData)
+      this.allTableData = this.tableData;
     }, error => {
     })
   }
+  filterARticles(){
+    let tempTableData:any= [];
+     this.allTableData.forEach(element => {
+       console.log(element)
+        if(element.title.includes(this.searchTerm) 
+        || element.city.includes(this.searchTerm) 
+        || element.type.includes(this.searchTerm) 
+        || element.phonenumber.includes(this.searchTerm)
+        || element.address.includes(this.searchTerm)){
+          tempTableData.push(element);
+        }
+     });
+     this.searchTerm.length == 1 ? this.tableData = this.allTableData : this.tableData = tempTableData;
+  }
   viewDetails(id: any) {
     this.router.navigate(['property' + '/' + id]);
+    window.open('property/'+id,"_blank")
   }
   deleteArticle(id: any) {
     this.adminService.deleteArticle(id).subscribe();
     this.getArticles();
+  }
+  editArticle(id:any){
+    this.router.navigate(['edit-article/'+id]);
   }
   toogleSideBar(event: any) {
     let sideBar = document.getElementById("mySidebar");

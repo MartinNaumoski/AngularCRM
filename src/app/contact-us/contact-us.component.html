@@ -3,48 +3,52 @@
 
 
 <main class="py-4">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-11">
-                <div class="card">
-                    <div class="card-header">
-                        Contact-us
-                    </div>
-                    <div class="container">
-                        <div class="card-body">
-                            <table class="table table-bordered">
-                                <thead>
-                                  <tr>
-                                    <th scope="col">Id</th>
-                                    <th scope="col">Full Name</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Subject</th>
-                                    <th scope="col">Created at</th>
-                                    <th scope="col">Actions</th>
-                                    
-                
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr *ngFor="let td of contactData">
-                                    <th>{{td.id}}</th>
-                                    <td>{{td.name}}</td>
-                                    <td>{{td.email}}</td>
-                                    <td>{{td.subject}}</td>
-                                    <td>{{td.created_at}}</td>
-        
-                                    <td>
-                                      <i (click)="viewDetails(td.id)" class="fa fa-eye text-success mr-1"></i>
-                                      <i (click)="deleteContact(td.id)" class="fa fa-trash text-danger"></i>
-                                    </td>
-                                  </tr>
-                
-                                </tbody>
-                              </table>
-                        </div>
-                    </div>
-                </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-11">
+        <div class="card">
+          <div class="card-header">
+            Contact-us
+          </div>
+          <div class="container">
+            <div class="card-body">
+              <div class="float-right text-right">
+                <label>Search:</label>
+                <input type="search" (keydown)="filterContacts()" [(ngModel)]="searchTerm">
+              </div>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Full Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Created at</th>
+                    <th scope="col">Actions</th>
+
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let td of contactData">
+                    <th>{{td.id}}</th>
+                    <td>{{td.name}}</td>
+                    <td>{{td.email}}</td>
+                    <td>{{td.subject}}</td>
+                    <td>{{td.created_at}}</td>
+
+                    <td>
+                      <i (click)="viewDetails(td.id)" class="fa fa-eye text-success mr-1"></i>
+                      <i (click)="deleteContact(td.id)" class="fa fa-trash text-danger"></i>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </main>

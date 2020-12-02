@@ -11,22 +11,31 @@ import { AuthGuard } from './auth.guard';
 import { DetailArticleComponent } from './detail-article/detail-article.component';
 import { ContatDetailsComponent } from './contat-details/contat-details.component';
 import { CreateArticleComponent } from './create-article/create-article.component';
+import { EditArticleComponent } from './edit-article/edit-article.component';
 const routes: Routes = [
   // {
   //   path: '',
   //   component:LoginComponent
   // },
   {
-    path:'create-article',
-    component: CreateArticleComponent
+    path: 'edit-article/:id',
+    component: EditArticleComponent,
+   // canActivate: [AuthGuard]
   },
   {
-    path:'contact/:id',
-    component: ContatDetailsComponent
+    path: 'create-article',
+    component: CreateArticleComponent,
+  //  canActivate: [AuthGuard]
   },
   {
-    path:'property/:id',
+    path: 'contact/:id',
+    component: ContatDetailsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'property/:id',
     component: DetailArticleComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
@@ -41,10 +50,25 @@ const routes: Routes = [
     component: HomeComponent,
     canActivate: [AuthGuard]
   },
-  { path: 'about-us', component: AboutUsComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'articles', component: AriclesComponent },
-  { path: 'contact-us', component: ContactUsComponent }
+  {
+    path: 'about-us',
+    component: AboutUsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
+  },
+  {
+    path: 'articles',
+    component: AriclesComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'contact-us',
+    component: ContactUsComponent,
+    canActivate: [AuthGuard]
+  }
 ];
 
 @NgModule({

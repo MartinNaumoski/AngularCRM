@@ -1,6 +1,6 @@
 <app-login-header (notifyParent)="toogleSideBar($event)"></app-login-header>
 <app-side-bar></app-side-bar>
-<main class="py-4">
+<main class="py-4"> 
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-11">
@@ -57,6 +57,9 @@
                     </div>
                 </div>
                 <a class="btn btn-secondary mt-2" routerLink="/articles"><i class="fa fa-arrow-left"></i>Back</a>
+                <div class="float-right">
+                  <a class="btn btn-secondary mt-2" (click)="editArticle()">Edit</a>
+                </div>
             </div>
         </div>
     </div>

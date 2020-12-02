@@ -1,32 +1,39 @@
 import { Component, OnInit } from '@angular/core';
-import { AdminServiceService } from '../../app/admin-service.service'
+import { AdminServiceService } from '../admin-service.service';
 import { ActivatedRoute } from '@angular/router'
 import { Subscription } from 'rxjs';
-import { Router } from '@angular/router'
 
 @Component({
-  selector: 'app-detail-article',
-  templateUrl: './detail-article.component.html',
-  styleUrls: ['./detail-article.component.css']
+  selector: 'app-edit-article',
+  templateUrl: './edit-article.component.html',
+  styleUrls: ['./edit-article.component.css']
 })
-export class DetailArticleComponent implements OnInit {
-  articleData = [];
+export class EditArticleComponent implements OnInit {
   private routeSub!: Subscription;
   id = 0;
-  constructor(private adminService: AdminServiceService,private route: ActivatedRoute,private router: Router) { }
+  article = [];
+  constructor(private adminService: AdminServiceService,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
- 
+    this.takeArticleId();
+  }
+  updateArticle(){
+    console.log(this.article);
+    this.adminService.editArticle(this.article,this.id).subscribe(data => {
+      console.log(data)
+    },error => {
+      console.log(error)
+    });
+  }
+  takeArticleId(){
     this.routeSub = this.route.params.subscribe(params => {
       this.id = params['id'];
-    });
-    this.adminService.getDetailArticle(this.id).subscribe(data=> {
-      this.articleData = data.Article;
-    },error => {
+    }); 
+    this.adminService.getArticle(this.id).subscribe(data => {
+      this.article = data.Article;
+      console.log(this.article);
+    }, error => {
     })
-  }
-  editArticle(){
-    this.router.navigate(['edit-article/'+this.id]);
   }
   toogleSideBar(event: any) {
     let sideBar = document.getElementById("mySidebar");
@@ -44,8 +51,5 @@ export class DetailArticleComponent implements OnInit {
         adminPanel.style.display = "block";
       }
     }
-  }
-  ngOnDestroy() {
-    this.routeSub.unsubscribe();
   }
 }

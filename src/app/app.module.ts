@@ -25,6 +25,7 @@ import { TokenInterceptor } from './token.interceptor';
 import { DetailArticleComponent } from './detail-article/detail-article.component';
 import { ContatDetailsComponent } from './contat-details/contat-details.component';
 import { CreateArticleComponent } from './create-article/create-article.component';
+import { EditArticleComponent } from './edit-article/edit-article.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { CreateArticleComponent } from './create-article/create-article.componen
     ContactUsComponent,
     DetailArticleComponent,
     ContatDetailsComponent,
-    CreateArticleComponent
+    CreateArticleComponent,
+    EditArticleComponent
   ],
   imports: [
     BrowserModule,

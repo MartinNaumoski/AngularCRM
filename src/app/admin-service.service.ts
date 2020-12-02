@@ -45,6 +45,11 @@ export class AdminServiceService {
   deleteArticle(id:any):Observable<any>{
     return this.http.delete(this.baseUrl + '/api/article/delete/'+id)
   }
-
+  getArticle(id:any):Observable<any>{
+    return this.http.get(this.baseUrl + '/api/article/property/'+ id)
+  }
+  editArticle(body:any,id:any):Observable<any>{
+    return this.http.put(this.baseUrl + '/api/update-article/'+ id,JSON.stringify(body))
+  }
 
 }

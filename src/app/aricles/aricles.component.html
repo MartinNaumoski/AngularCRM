@@ -12,7 +12,22 @@
           </div>
           <div class="container">
             <div class="card-body">
-              <button class="btn btn-primary mt-2 mb-2 float-right" routerLink = '/create-article'>Create</button>
+              <button class="btn btn-primary mt-2 mb-2 float-right" routerLink='/create-article'>Create</button>
+              <br><br><br>
+              <div class="float-left">
+                <label>Show:</label>
+                <select>
+                  <option value="10">10</option>
+                  <option value="25">25</option>
+                  <option value="50">50</option>
+                  <option value="100">100</option>
+                </select>
+                <label>entries</label>
+              </div>
+              <div class="float-right text-right">
+                <label>Search:</label>
+                <input type="search" (keydown)="filterARticles()" [(ngModel)]="searchTerm">
+              </div>
               <table class="table table-bordered">
                 <thead>
                   <tr>
@@ -38,7 +53,7 @@
                     <td>@mdo</td>
                     <td>
                       <i (click)="viewDetails(td.id)" class="fa fa-eye text-success mr-1"></i>
-                      <i class="fa fa-pencil text-primary mr-1"></i>
+                      <i (click)="editArticle(td.id)" class="fa fa-pencil text-primary mr-1"></i>
                       <i (click)="deleteArticle(td.id)" class="fa fa-trash text-danger"></i>
                     </td>
                   </tr>
