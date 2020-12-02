@@ -33,7 +33,7 @@ export class ContactUsComponent implements OnInit {
   }
   filterContacts() {
     let tempTableData: any = [];
-    this.allContactData.forEach(element => {
+    this.allContactData.forEach((element:any) => {
       if (element.subject.includes(this.searchTerm)
         || element.name.includes(this.searchTerm)
         || element.email.includes(this.searchTerm)

@@ -8,7 +8,7 @@ import { Router } from '@angular/router'
 })
 export class AriclesComponent implements OnInit {
 
-  tableData = [];
+  tableData:any = [];
   searchTerm = '';
   allTableData:any = [];
 
@@ -26,7 +26,7 @@ export class AriclesComponent implements OnInit {
   }
   filterARticles(){
     let tempTableData:any= [];
-     this.allTableData.forEach(element => {
+     this.allTableData.forEach((element:any) => {
        console.log(element)
         if(element.title.includes(this.searchTerm) 
         || element.city.includes(this.searchTerm) 

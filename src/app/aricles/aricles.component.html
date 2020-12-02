@@ -42,7 +42,7 @@
 
                   </tr>
                 </thead>
-                <tbody>
+                <tbody *ngIf="tableData">
                   <tr *ngFor="let td of tableData">
                     <th>{{td.id}}</th>
                     <td>{{td.title}}</td>
