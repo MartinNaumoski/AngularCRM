@@ -12,7 +12,7 @@ export class ContactUsComponent implements OnInit {
 
   contactData: any;
   allContactData:any = [];
-  searchTerm = '';
+  searchTerm:any = '';
 
   constructor(private adminService: AdminServiceService, private router: Router) { }
 

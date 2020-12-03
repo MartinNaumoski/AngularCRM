@@ -10,7 +10,7 @@ import { Router } from '@angular/router'
   styleUrls: ['./detail-article.component.css']
 })
 export class DetailArticleComponent implements OnInit {
-  articleData = [];
+  articleData:any = [];
   private routeSub!: Subscription;
   id = 0;
   constructor(private adminService: AdminServiceService,private route: ActivatedRoute,private router: Router) { }

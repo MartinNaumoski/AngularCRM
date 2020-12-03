@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
 export class EditArticleComponent implements OnInit {
   private routeSub!: Subscription;
   id = 0;
-  article = [];
+  article:any = [];
   constructor(private adminService: AdminServiceService,private route: ActivatedRoute) { }
 
   ngOnInit(): void {

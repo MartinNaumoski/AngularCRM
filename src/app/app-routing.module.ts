@@ -12,6 +12,7 @@ import { DetailArticleComponent } from './detail-article/detail-article.componen
 import { ContatDetailsComponent } from './contat-details/contat-details.component';
 import { CreateArticleComponent } from './create-article/create-article.component';
 import { EditArticleComponent } from './edit-article/edit-article.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component'
 const routes: Routes = [
   // {
   //   path: '',
@@ -68,6 +69,10 @@ const routes: Routes = [
     path: 'contact-us',
     component: ContactUsComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path:'reset-password',
+    component: ResetPasswordComponent
   }
 ];
 

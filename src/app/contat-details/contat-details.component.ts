@@ -9,8 +9,8 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./contat-details.component.css']
 })
 export class ContatDetailsComponent implements OnInit {
-  contactData = [];
-  private routeSub!: Subscription;
+  contactData:any;
+  private routeSub!: Subscription; 
   id = 0;
   constructor(private adminService: AdminServiceService,private route: ActivatedRoute) { }
 

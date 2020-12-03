@@ -26,7 +26,9 @@ import { DetailArticleComponent } from './detail-article/detail-article.componen
 import { ContatDetailsComponent } from './contat-details/contat-details.component';
 import { CreateArticleComponent } from './create-article/create-article.component';
 import { EditArticleComponent } from './edit-article/edit-article.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { ResetPasswordComponent } from './reset-password/reset-password.component'
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +45,8 @@ import { EditArticleComponent } from './edit-article/edit-article.component';
     DetailArticleComponent,
     ContatDetailsComponent,
     CreateArticleComponent,
-    EditArticleComponent
+    EditArticleComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,8 @@ import { EditArticleComponent } from './edit-article/edit-article.component';
     MatCardModule,
     HttpClientModule,
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [AuthGuard, {
     provide: HTTP_INTERCEPTORS,

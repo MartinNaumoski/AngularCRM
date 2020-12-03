@@ -25,7 +25,6 @@ export class LoginHeaderComponent implements OnInit {
   logOut(){
     localStorage.removeItem('token');
     this.router.navigate(['/']);
-
   }
 
 }

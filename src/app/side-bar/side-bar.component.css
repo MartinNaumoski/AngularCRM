@@ -21,3 +21,11 @@
     padding: 15px 15px;
     border-bottom: 1px solid;
 }
+@media (max-width: 769px) {
+    .animation-out{
+        width: 45px;
+        height: 100%;
+        transition: all 0.5s ease-in-out;
+        display: none;
+    }
+ }

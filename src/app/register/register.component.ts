@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../login.service';
-
+import { Router } from '@angular/router'
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -15,34 +16,36 @@ export class RegisterComponent implements OnInit {
   }
   error = '';
   succes = '';
-  constructor(private loginService: LoginService) { }
+  newUser:FormGroup;
+  constructor(
+    private loginService: LoginService,
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
+    this.newUser = new FormGroup({
+      name: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.email,Validators.required]),
+      password: new FormControl('',Validators.required),
+      password_confirmation: new FormControl('',Validators.required)
+    })
   }
 
-  registerUser() {
-    console.log(this.validateUser(this.user))
-    
-    if( this.validateUser(this.user) ){
-      this.loginService.registerUser(this.user).subscribe(data => {
+  registerUser(user:any) {
+
+      this.loginService.registerUser(user).subscribe(data => {
         this.succes = "You created new user."
+        this.router.navigate(['/home']);
+
       }, error => {
         this.error = error.error.message;
       });
-    }
-    
   }
-  validateUser(user: any) {
-    this.error = '';
-    let valFlag: boolean = false;
-    user.name == '' ? this.error += "Must enter name . " : '';
-    !/^[^@]+@[^@]{2,}\.[^@]{2,}$/.test(user.email) ? this.error += 'Must enter valid email. ' : '';
-    user.password == '' ? this.error += 'Must enter password.' : '';
-    user.password != user.password_confirmation ? this.error += 'Two passwords must be the same.' : '';
-    if( user.name != '' &&  /^[^@]+@[^@]{2,}\.[^@]{2,}$/.test(user.email) && user.password != '' && user.password == user.password_confirmation){
-      valFlag = true;
+  onSubmit(form: FormGroup) {
+    if(form.valid){
+      this.registerUser(form.value);
     }
-    return valFlag;
   }
+
 
 }

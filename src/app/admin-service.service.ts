@@ -15,7 +15,7 @@ export class AdminServiceService {
   constructor(private router: Router, private http: HttpClient, private auth :LoginService) { }
   adminHeader() {
     let href = this.router.url;
-    href == "/login" || href == "/register" ? this.adminPanelFlag = true : this.adminPanelFlag = false;
+    href == "/login" || href == "/register" || href == "/reset-password" ? this.adminPanelFlag = true : this.adminPanelFlag = false;
     return this.adminPanelFlag;
   }
   getAboutUsData(): Observable<any> {
