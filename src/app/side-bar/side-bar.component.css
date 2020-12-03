@@ -26,6 +26,8 @@
         width: 45px;
         height: 100%;
         transition: all 0.5s ease-in-out;
-        display: none;
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s, opacity 0.5s linear;
     }
  }

@@ -15,10 +15,10 @@
                     </div>
                     <div class="card-body">
                         <label class="font-weight-bold">Title:</label>
-                        <input class="form-control" [value]="title">
+                        <input class="form-control" [value]="title" [(ngModel)]="body.title">
                         <label class="font-weight-bold mt-3">Body:</label>
-                        <textarea class="form-control" rows="6" [value]="body"></textarea>
-                        <button class="btn btn-primary  py-2 px-4 rounded-0 mt-3" (click)="updateAboutUs(title,body)">Update</button>
+                        <textarea class="form-control" rows="6" [value]="body" [(ngModel)]="body.body"></textarea>
+                        <button class="btn btn-primary  py-2 px-4 rounded-0 mt-3" (click)="updateAboutUs()">Update</button>
                     </div>
                 </div>
             </div>

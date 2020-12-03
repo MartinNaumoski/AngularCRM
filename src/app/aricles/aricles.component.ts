@@ -15,7 +15,7 @@ export class AriclesComponent implements OnInit {
   constructor(private adminService: AdminServiceService, private router: Router) { }
 
   ngOnInit(): void {
-    this.getArticles();
+    this.getArticles(); 
   }
   getArticles() {
     this.adminService.getArticles().subscribe(data => {

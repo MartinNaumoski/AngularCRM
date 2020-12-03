@@ -6,30 +6,30 @@ import { AdminServiceService } from '../admin-service.service';
   styleUrls: ['./about-us.component.css']
 })
 export class AboutUsComponent implements OnInit {
-  aboutUsData :any= [];
+  aboutUsData: any = [];
   title = '';
-  body = '';
+  body = {
+    title: '',
+    body: ''
+  };
   constructor(private mainService: AdminServiceService) { }
 
   ngOnInit(): void {
     this.getAbousUsData()
 
   }
-  getAbousUsData(){
+  getAbousUsData() {
     this.mainService.getAboutUsData().subscribe((data) => {
-      this.aboutUsData = data; 
-      this.title = this.aboutUsData["About us"].title; 
-      this.body = this.aboutUsData["About us"].body;
+      this.aboutUsData = data;
+      this.body.title = this.aboutUsData["About us"].title;
+      this.body.body = this.aboutUsData["About us"].body;
     });
 
 
   }
-  updateAboutUs(title:any,body:any){
-    let bodyObj = {
-      title:title,
-      body:body,
-    }
-    this.mainService.updateAboutUs(bodyObj).subscribe(data => {
+  updateAboutUs() {
+    console.log(this.body)
+    this.mainService.updateAboutUs(this.body).subscribe(data => {
       console.log(data)
     });
   }
