@@ -23,6 +23,7 @@ export class CreateArticleComponent implements OnInit {
   ngOnInit(): void {
   } 
   createArticle(){
+    console.log(JSON.stringify(this.article))
     this.article.city ="gjakove";
     this.adminService.createArticle(this.article).subscribe(data => {
 

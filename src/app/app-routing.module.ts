@@ -12,7 +12,9 @@ import { DetailArticleComponent } from './detail-article/detail-article.componen
 import { ContatDetailsComponent } from './contat-details/contat-details.component';
 import { CreateArticleComponent } from './create-article/create-article.component';
 import { EditArticleComponent } from './edit-article/edit-article.component';
-import { ResetPasswordComponent } from './reset-password/reset-password.component'
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { AboutComponent } from './about/about.component'
+import { ContactComponent } from './contact/contact.component';
 const routes: Routes = [
   // {
   //   path: '',
@@ -73,6 +75,14 @@ const routes: Routes = [
   {
     path:'reset-password',
     component: ResetPasswordComponent
+  },
+  {
+    path:'about',
+    component:AboutComponent
+  },
+  {
+    path:'contact',
+    component:ContactComponent
   }
 ];
 

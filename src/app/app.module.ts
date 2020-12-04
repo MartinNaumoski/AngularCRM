@@ -27,8 +27,13 @@ import { ContatDetailsComponent } from './contat-details/contat-details.componen
 import { CreateArticleComponent } from './create-article/create-article.component';
 import { EditArticleComponent } from './edit-article/edit-article.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ResetPasswordComponent } from './reset-password/reset-password.component'
- 
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { AboutComponent } from './about/about.component';
+import { CarouselComponent } from './carousel/carousel.component'
+import { CommonModule } from '@angular/common';
+import { FooterComponent } from './footer/footer.component';
+import { ContactComponent } from './contact/contact.component';  
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +51,11 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     ContatDetailsComponent,
     CreateArticleComponent,
     EditArticleComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    AboutComponent,
+    CarouselComponent,
+    FooterComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +67,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    CommonModule
   ],
   providers: [AuthGuard, {
     provide: HTTP_INTERCEPTORS,
