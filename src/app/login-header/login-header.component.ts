@@ -23,7 +23,6 @@ export class LoginHeaderComponent implements OnInit {
     this.notifyParent.emit('Some value to send to the parent');
   }
   logOut(){
-    console.log("vleze")
     localStorage.removeItem('token');
     this.router.navigate(['/']);
     location.reload();
