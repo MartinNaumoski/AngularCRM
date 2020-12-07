@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminServiceService } from '../admin-service.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-create-article',
@@ -7,37 +9,46 @@ import { AdminServiceService } from '../admin-service.service';
   styleUrls: ['./create-article.component.css']
 })
 export class CreateArticleComponent implements OnInit {
-  selectedFile:File;
-
+  selectedFile: File;
   formData = {
     title: '',
     body: '',
-    price: 0,
+    price: '',
     address: '',
     city: '',
     for: '',
     phone_number: '',
-    filenames:[],
-    type:'',
-    avalible:''
+    type: '',
+    avalible: ''
   }
-  constructor(private adminService : AdminServiceService) { }
+  constructor(private formBuilder: FormBuilder, private adminService: AdminServiceService) { }
 
   ngOnInit(): void {
-  } 
-  onFileChanged(event:any) {
-    //this.formData.filenames.push(event.target.files[0]);
-    console.log(event.target.files[0])
-  }
-  createArticle(){
-    console.log(this.formData)
-    this.adminService.createArticle(this.formData).subscribe(data => {
 
-    },error => {
+  }
+  onFileChanged(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
+
+  createArticle() {
+    const formData = new FormData();
+    formData.append('title', this.formData.title);
+    formData.append('body', this.formData.body);
+    formData.append('price', this.formData.price);
+    formData.append('address', this.formData.address)
+    formData.append('city', this.formData.city)
+    formData.append('for', this.formData.for)
+    formData.append('phone_number', this.formData.phone_number)
+    formData.append('filenames[]', this.selectedFile);
+    formData.append('type', this.formData.type)
+    formData.append('available', this.formData.avalible)
+
+    this.adminService.createArticle(formData).subscribe(data => {
+    }, error => {
       console.log(error)
     })
   }
-  
+
   toogleSideBar(event: any) {
     let sideBar = document.getElementById("mySidebar");
     let adminPanel = document.getElementById("adminPanel");

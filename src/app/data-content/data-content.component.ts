@@ -29,26 +29,32 @@ export class DataContentComponent implements OnInit {
   ngOnInit(): void {
     this.takeArticles();
   }
- 
-  takeArticles(){
+
+  takeArticles() {
     this.adminServiceService.getArticles().subscribe(data => {
       this.articles = data.Articles;
-      console.log(this.articles);
-    },error => {
+    }, error => {
       console.log(error)
     })
   }
-  showDetailArticle(id:any){
+  showDetailArticle(id: any) {
     console.log(id)
-    this.router.navigate(['detail-property/'+id])
+    this.router.navigate(['detail-property/' + id])
   }
   makeSearchQuery() {
+
+    // let params = {
+    //   price_form: this.searchQuery.price_form
+    // };
+
+    // this.router.navigate(['/'], { queryParams: params });
     this.dataContentService.search(this.searchQuery).subscribe(data => {
+      console.log(data)
       this.searchData = data.Articles.data;
       this.searchData = ["test"]
       this.searchData ? this.tempFlag = true : false;
     }, error => {
-      console.log(error);
+      console.log(error)
     });
   }
 
