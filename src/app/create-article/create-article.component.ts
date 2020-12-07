@@ -7,30 +7,37 @@ import { AdminServiceService } from '../admin-service.service';
   styleUrls: ['./create-article.component.css']
 })
 export class CreateArticleComponent implements OnInit {
-  article = {
+  selectedFile:File;
+
+  formData = {
     title: '',
     body: '',
-    city: '',
+    price: 0,
     address: '',
+    city: '',
     for: '',
-    price: '',
-    type: '',
-    avalible:'',
-    phone_number:''
+    phone_number: '',
+    filenames:[],
+    type:'',
+    avalible:''
   }
   constructor(private adminService : AdminServiceService) { }
 
   ngOnInit(): void {
   } 
+  onFileChanged(event:any) {
+    //this.formData.filenames.push(event.target.files[0]);
+    console.log(event.target.files[0])
+  }
   createArticle(){
-    console.log(JSON.stringify(this.article))
-    this.article.city ="gjakove";
-    this.adminService.createArticle(this.article).subscribe(data => {
+    console.log(this.formData)
+    this.adminService.createArticle(this.formData).subscribe(data => {
 
     },error => {
       console.log(error)
     })
   }
+  
   toogleSideBar(event: any) {
     let sideBar = document.getElementById("mySidebar");
     let adminPanel = document.getElementById("adminPanel");

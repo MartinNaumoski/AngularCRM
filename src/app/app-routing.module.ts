@@ -15,6 +15,7 @@ import { EditArticleComponent } from './edit-article/edit-article.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { AboutComponent } from './about/about.component'
 import { ContactComponent } from './contact/contact.component';
+import { DetailPropertyComponent } from './detail-property/detail-property.component';
 const routes: Routes = [
   // {
   //   path: '',
@@ -83,6 +84,10 @@ const routes: Routes = [
   {
     path:'contact',
     component:ContactComponent
+  },
+  {
+    path:'detail-property/:id',
+    component:DetailPropertyComponent
   }
 ];
 

@@ -32,7 +32,8 @@ import { AboutComponent } from './about/about.component';
 import { CarouselComponent } from './carousel/carousel.component'
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
-import { ContactComponent } from './contact/contact.component';  
+import { ContactComponent } from './contact/contact.component';
+import { DetailPropertyComponent } from './detail-property/detail-property.component';  
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { ContactComponent } from './contact/contact.component';
     AboutComponent,
     CarouselComponent,
     FooterComponent,
-    ContactComponent
+    ContactComponent,
+    DetailPropertyComponent
   ],
   imports: [
     BrowserModule,

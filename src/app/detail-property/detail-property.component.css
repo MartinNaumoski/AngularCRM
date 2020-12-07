@@ -1,0 +1,20 @@
+.property-specs-wrap{
+    list-style: none;
+}
+ul > li {
+    float: left;
+    margin:8px;
+}
+.d-block{
+    display: block;
+}
+.widget {
+    padding: 40px;
+    margin-bottom: 30px;
+}
+.property-body{
+    padding: 40px;
+}
+.bg-success {
+    background-color: #7cbd1e !important;
+}

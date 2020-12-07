@@ -22,6 +22,7 @@ export class DetailArticleComponent implements OnInit {
     });
     this.adminService.getDetailArticle(this.id).subscribe(data=> {
       this.articleData = data.Article;
+      console.log(data)
     },error => {
     })
   }
@@ -44,6 +45,9 @@ export class DetailArticleComponent implements OnInit {
         adminPanel.style.display = "block";
       }
     }
+  }
+  showArticle(){
+    this.router.navigate(['detail-property/'+ this.id])
   }
   ngOnDestroy() {
     this.routeSub.unsubscribe();

@@ -20,6 +20,7 @@ export class AriclesComponent implements OnInit {
   getArticles() {
     this.adminService.getArticles().subscribe(data => {
       this.tableData = data.Articles;
+      console.log(data)
       this.allTableData = this.tableData;
     }, error => {
     })
@@ -44,6 +45,7 @@ export class AriclesComponent implements OnInit {
   }
   deleteArticle(id: any) {
     this.adminService.deleteArticle(id).subscribe();
+    window.location.reload();
     this.getArticles();
   }
   editArticle(id:any){

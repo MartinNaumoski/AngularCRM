@@ -134,16 +134,15 @@
         remaining essentially unchanged. I
     </p>
     <div class="row mt-5">
-        <div class="col-lg-4">
+        <div *ngFor="let article of articles" class="col-lg-4" (click)="showDetailArticle(article.id)">
             <mat-card class="example-card bg-white text-muted">
-                <img mat-card-image src="../../assets/black.jpg">
-                <h3>The Shiba Inu is the smallest of </h3>
+                <img src="../../assets/hero_how_it_works_meal_plans.jpg" class="w-100 zoom">
+                <h3>{{article.title}} </h3>
 
                 <mat-card-content>
                     <p>
-                        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                        bred for hunting.
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        {{article.address}}
                     </p>
                 </mat-card-content>
                 <mat-card-actions>
@@ -153,7 +152,7 @@
                 </mat-card-actions>
             </mat-card>
         </div>
-        <div class="col-lg-4">
+        <!-- <div class="col-lg-4">
             <mat-card class="example-card bg-white text-muted">
                 <img mat-card-image src="../../assets/black.jpg">
                 <h3>The Shiba Inu is the smallest of </h3>
@@ -191,7 +190,7 @@
                     <button class="btn btn-primary pl-4 pr-4 ">$ 270.000</button>
                 </mat-card-actions>
             </mat-card>
-        </div>
+        </div> -->
     </div>
 </div>
 

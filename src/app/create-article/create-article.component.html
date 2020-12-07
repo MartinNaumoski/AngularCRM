@@ -16,7 +16,7 @@
                                 <div class="input-group-prepend">
                                     <div class="input-group-text text-primary font-weight-bold">Title</div>
                                 </div>
-                                <input class="form-control" type="text" placeholder="Title" [(ngModel)]="article.title"> 
+                                <input class="form-control" type="text" placeholder="Title" [(ngModel)]="formData.title">
                             </div>
                         </div>
                         <div class="form-group">
@@ -24,7 +24,8 @@
                                 <div class="input-group-prepend">
                                     <div class="input-group-text text-primary font-weight-bold">Body</div>
                                 </div>
-                                <textarea class="form-control" type="text" rows="10" [(ngModel)]="article.body"> </textarea>
+                                <textarea class="form-control" type="text" rows="10"
+                                    [(ngModel)]="formData.body"> </textarea>
                             </div>
                         </div>
                         <div class="form-group">
@@ -32,9 +33,9 @@
                                 <div class="input-group-prepend">
                                     <div class="input-group-text text-primary font-weight-bold">Create</div>
                                 </div>
-                                <select name="city" class="form-control" [(ngModel)]="article.city">
-                                    <option value="Gjakove">Gjakove</option>
-                                    <option value="Prishtine">Prishtine</option>
+                                <select name="city" class="form-control" [(ngModel)]="formData.city">
+                                    <option value="gjakove">Gjakove</option>
+                                    <option value="prishtine">Prishtine</option>
                                 </select>
                             </div>
                         </div>
@@ -43,7 +44,8 @@
                                 <div class="input-group-prepend">
                                     <div class="input-group-text text-primary font-weight-bold">Address</div>
                                 </div>
-                                <input class="form-control" type="text" placeholder="Address" [(ngModel)]="article.address"> 
+                                <input class="form-control" type="text" placeholder="Address"
+                                    [(ngModel)]="formData.address">
                             </div>
                         </div>
                         <div class="form-group">
@@ -51,7 +53,7 @@
                                 <div class="input-group-prepend">
                                     <div class="input-group-text text-primary font-weight-bold">For</div>
                                 </div>
-                                <select name="city" class="form-control" [(ngModel)]="article.for">
+                                <select name="city" class="form-control" [(ngModel)]="formData.for">
                                     <option value="both">Both</option>
                                     <option value="sale">Sale</option>
                                     <option value="rent">Rent</option>
@@ -63,7 +65,8 @@
                                 <div class="input-group-prepend">
                                     <div class="input-group-text text-primary font-weight-bold">Price</div>
                                 </div>
-                                <input class="form-control" type="tenumber" placeholder="e.g. 200" [(ngModel)]="article.price"> 
+                                <input class="form-control" type="number" placeholder="e.g. 200"
+                                    [(ngModel)]="formData.price">
                                 <div class="input-group-append">
                                     <span class="input-group-text">$</span>
                                 </div>
@@ -74,7 +77,7 @@
                                 <div class="input-group-prepend">
                                     <div class="input-group-text text-primary font-weight-bold">Type</div>
                                 </div>
-                                <select name="city" class="form-control" [(ngModel)]="article.type">
+                                <select name="city" class="form-control" [(ngModel)]="formData.type">
                                     <option value="1+1">1+1</option>
                                     <option value="2+1">2+1</option>
                                 </select>
@@ -85,7 +88,7 @@
                                 <div class="input-group-prepend">
                                     <div class="input-group-text text-primary font-weight-bold">Avalible</div>
                                 </div>
-                                <select name="city" class="form-control" [(ngModel)]="article.avalible">
+                                <select name="city" class="form-control" [(ngModel)]="formData.avalible">
                                     <option value="1">Yes</option>
                                     <option value="0">No</option>
                                 </select>
@@ -96,21 +99,24 @@
                                 <div class="input-group-prepend">
                                     <div class="input-group-text text-primary font-weight-bold">Number</div>
                                 </div>
-                                <input class="form-control" type="tenumber" placeholder="Phone number" [(ngModel)]="article.phone_number"> 
-                    
+                                <input class="form-control" type="tenumber" placeholder="Phone number"
+                                    [(ngModel)]="formData.phone_number">
+
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="input-group mb-2">
-                                <input class="form-control" type="file" multiple="multiple"> 
+                                <input class="form-control" type="file"   multiple="multiple"
+                                    (change)="onFileChanged($event)">
                             </div>
                         </div>
                         <div class="text-center">
-                            <button class="btn btn-info btn-block rounded-0 py-2" (click)="createArticle()">Create</button>
+                            <button class="btn btn-info btn-block rounded-0 py-2" accept="image/*"
+                                (click)="createArticle()">Create</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</main> 
+</main>

@@ -1,0 +1,89 @@
+<app-header></app-header>
+<app-carousel></app-carousel>
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <img src="../../assets/hero_how_it_works_meal_plans.jpg" class="w-100">
+            <div class="bg-white property-body border-bottom border-left border-right">
+                <div class="row mb-5">
+                    <div class="col-md-6">
+                        <strong class="text-success h1 mb-3">{{article.price}}$</strong>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="property-specs-wrap mb-3 mb-lg-0  float-lg-right">
+                            <li *ngIf="article.for == 'both' || article.for == 'sale'">
+                                <span class="d-inline-block bg-danger text-white px-3 mb-3 property-offer-type rounded p-2">
+                                    For sale
+                                </span>
+                            </li>
+                            <li *ngIf="article.for == 'both' || article.for == 'rent'">
+                                <span class="d-inline-block bg-success text-white px-3 mb-3 property-offer-type rounded p-2">
+                                    For rent
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row mb-5">
+                    <div class="col-md-6 col-lg-3 text-center border-bottom border-top py-3">
+                        <span class="d-inline-block text-black mb-0 caption-text">
+                            Type
+                        </span>
+                        <span class="d-block">
+                            {{article.type}}
+                        </span>
+                    </div>
+                    <div class="col-md-6 col-lg-3 text-center border-bottom border-top py-3">
+                        <span class="d-inline-block text-black mb-0 caption-text">
+                            City
+                        </span>
+                        <span class="d-block">
+                            {{article.city}}
+                        </span>
+                    </div>
+                    <div class="col-md-6 col-lg-3 text-center border-bottom border-top py-3">
+                        <span class="d-inline-block text-black mb-0 caption-text">
+                            Address
+                        </span>
+                        <span class="d-block">
+                            {{article.address}}
+                        </span>
+                    </div>
+                    <div class="col-md-6 col-lg-3 text-center border-bottom border-top py-3">
+                        <span class="d-inline-block text-black mb-0 caption-text">
+                            Number
+                        </span>
+                        <span class="d-block">
+                            {{article.phonenumber}}
+                        </span>
+                    </div>
+                </div>
+                <h2 class="h4 text-black">{{article.title}}</h2>
+                <p>{{article.body}}</p>
+                <div class="row no-gutters mt-5">
+                    <div class="col-12">
+                        <h2 class="h4 text-black mb-3">Gallery</h2>
+                        <div class="col-sm-6 col-md-4 col-lg-3">
+                            <img src="../../assets/hero_how_it_works_meal_plans.jpg" class="w-100">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="bg-white widget border rounded">
+                <h3 class="h4 text-black widget-title mb-3">
+                    Paragraph
+                </h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit qui explicabo, libero nam, saepe
+                    eligendi. Molestias maiores illum error rerum. Exercitationem ullam saepe, minus, reiciendis ducimus
+                    quis. Illo, quisquam, veritatis.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<app-footer></app-footer>
