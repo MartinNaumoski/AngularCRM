@@ -38,20 +38,13 @@ export class DataContentComponent implements OnInit {
     })
   }
   showDetailArticle(id: any) {
-    console.log(id)
     this.router.navigate(['detail-property/' + id])
   }
   makeSearchQuery() {
-
-    // let params = {
-    //   price_form: this.searchQuery.price_form
-    // };
-
-    // this.router.navigate(['/'], { queryParams: params });
     this.dataContentService.search(this.searchQuery).subscribe(data => {
-      console.log(data)
       this.searchData = data.Articles.data;
-      this.searchData = ["test"]
+      this.articles = this.searchData;
+      console.log(this.searchData)
       this.searchData ? this.tempFlag = true : false;
     }, error => {
       console.log(error)

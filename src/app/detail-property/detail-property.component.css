@@ -18,3 +18,15 @@ ul > li {
 .bg-success {
     background-color: #7cbd1e !important;
 }
+.font-style{
+    font-size: 35px;
+}
+.zoom {
+    transition: transform .2s; 
+    margin: 0 auto;
+  }
+  
+  .zoom:hover {
+    transform: scale(1.09); 
+    cursor: pointer;
+  }

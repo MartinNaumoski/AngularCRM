@@ -8,14 +8,14 @@ import { Router } from '@angular/router'
 })
 export class AriclesComponent implements OnInit {
 
-  tableData:any = [];
+  tableData: any = [];
   searchTerm = '';
-  allTableData:any = [];
+  allTableData: any = [];
 
   constructor(private adminService: AdminServiceService, private router: Router) { }
 
   ngOnInit(): void {
-    this.getArticles(); 
+    this.getArticles();
   }
   getArticles() {
     this.adminService.getArticles().subscribe(data => {
@@ -25,31 +25,31 @@ export class AriclesComponent implements OnInit {
     }, error => {
     })
   }
-  filterARticles(){
-    let tempTableData:any= [];
-     this.allTableData.forEach((element:any) => {
-       console.log(element)
-        if(element.title.includes(this.searchTerm) 
-        || element.city.includes(this.searchTerm) 
-        || element.type.includes(this.searchTerm) 
+  filterARticles() {
+    let tempTableData: any = [];
+    this.allTableData.forEach((element: any) => {
+      console.log(element)
+      if (element.title.includes(this.searchTerm)
+        || element.city.includes(this.searchTerm)
+        || element.type.includes(this.searchTerm)
         || element.phonenumber.includes(this.searchTerm)
-        || element.address.includes(this.searchTerm)){
-          tempTableData.push(element);
-        }
-     });
-     this.searchTerm.length == 1 ? this.tableData = this.allTableData : this.tableData = tempTableData;
+        || element.address.includes(this.searchTerm)) {
+        tempTableData.push(element);
+      }
+    });
+    this.searchTerm.length == 1 ? this.tableData = this.allTableData : this.tableData = tempTableData;
   }
   viewDetails(id: any) {
     this.router.navigate(['property' + '/' + id]);
-    window.open('property/'+id,"_blank")
+    window.open('property/' + id, "_blank")
   }
   deleteArticle(id: any) {
     this.adminService.deleteArticle(id).subscribe();
-    window.location.reload();
     this.getArticles();
+    window.location.reload();
   }
-  editArticle(id:any){
-    this.router.navigate(['edit-article/'+id]);
+  editArticle(id: any) {
+    this.router.navigate(['edit-article/' + id]);
   }
   toogleSideBar(event: any) {
     let sideBar = document.getElementById("mySidebar");

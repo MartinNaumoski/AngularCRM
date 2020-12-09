@@ -44,7 +44,7 @@
         <div class="col-lg-4 mb-4 mb-md-0">
             <p class="text-center">Offer type</p>
             <select class="form-control" id="sel1" [(ngModel)]="searchQuery.offer_types">
-                <option value="all">All</option>
+                <option value="">All</option>
                 <option value="sale">For sale</option>
                 <option value="rent">For rent</option>
             </select>
@@ -52,14 +52,14 @@
         <div class="col-lg-4 mb-4 mb-md-0">
             <p class="text-center">City</p>
             <select class="form-control" id="sel1" [(ngModel)]="searchQuery.city">
-                <option value="All">All</option>
-                <option value="Gjakove">Gjakove</option>
-                <option value="Prishtine">Prishtine</option>
-                <option value="Mitrovice">Mitrovice</option>
-                <option value="Peje">Peje</option>
-                <option value="Prizren">Prizren</option>
-                <option value="Glijab">Glijan</option>
-                <option value="Ferizaj">Ferizaj</option>
+                <option value="">All</option>
+                <option value="gjakove">Gjakove</option>
+                <option value="prishtine">Prishtine</option>
+                <option value="mitrovice">Mitrovice</option>
+                <option value="peje">Peje</option>
+                <option value="prizren">Prizren</option>
+                <option value="glijab">Glijan</option>
+                <option value="ferizaj">Ferizaj</option>
             </select>
         </div>
         <div class="col-lg-4 mb-4 mb-md-0">
@@ -97,14 +97,14 @@
             </select>
         </div> -->
         <div class="col-lg-4 mb-4 mb-md-0">
-            Prince range: <b>$40.000 - $ 180.000
+            Prince from: <b>{{searchQuery.price_from}}
             </b>
-            <mat-slider class="bg-white w-100" min="1" max="5000" step="1" value="2500"
+            <mat-slider class="bg-white w-100" min="1" max="1000" step="1" 
                 [(ngModel)]="searchQuery.price_from"></mat-slider>
         </div>
         <div class="col-lg-4 mb-4 mb-md-0">
-            Price to: <b>5-130</b>
-            <mat-slider class="bg-white w-100" min="1" max="5000" step="1" value="2500"
+            Price to: <b>{{searchQuery.price_to}}</b>
+            <mat-slider class="bg-white w-100" min="1" max="1000" step="1" 
                 [(ngModel)]="searchQuery.price_to"></mat-slider>
         </div>
         <div class="col-lg-4 mb-4 mb-md-0 mt-4">
@@ -115,17 +115,17 @@
 
 
 
-<div class="site-section site-section-sm bg-white p-5" *ngIf="searchData.length != 0">
+<div class="site-section site-section-sm bg-white p-5" *ngIf="searchData.length == 0 && tempFlag">
     <div class="container">
-        <p class="alert alert-warning">Sale</p>
+        <p class="alert alert-warning">No apartments</p>
     </div>
 </div>
-<div class="site-section site-section-sm bg-white p-5" *ngIf="searchData.length == 0 && tempFlag">
+<!-- <div class="site-section site-section-sm bg-white p-5" *ngIf="searchData.length == 0 && tempFlag">
     <div class="container">
         <p class="alert alert-warning">No apartments for sale or rent. </p>
     </div>
-</div>
-<div class="container mt-4 text-center">
+</div> -->
+<div class="container mt-4 text-center mb-5">
     <!-- <h1 class="text-success text-capitalize font-weight-bold splitWords">We are offering the best real estate deals</h1>
     <p class="container-fluid">
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
@@ -194,7 +194,7 @@
     </div>
 </div>
 
-<div class="container mt-5">
+<!-- <div class="container mt-5">
 
     <fieldset class="p-2">
         <legend class="text-success font-weight-bold splitWords w-auto">POPULAR PROPERTIES</legend>
@@ -304,5 +304,5 @@
 
     </div>
 
-</div>
+</div> -->
 <app-footer></app-footer>

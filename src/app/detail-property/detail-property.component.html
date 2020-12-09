@@ -12,12 +12,14 @@
                     <div class="col-md-6">
                         <ul class="property-specs-wrap mb-3 mb-lg-0  float-lg-right">
                             <li *ngIf="article.for == 'both' || article.for == 'sale'">
-                                <span class="d-inline-block bg-danger text-white px-3 mb-3 property-offer-type rounded p-2">
+                                <span
+                                    class="d-inline-block bg-danger text-white px-3 mb-3 property-offer-type rounded p-2">
                                     For sale
                                 </span>
                             </li>
                             <li *ngIf="article.for == 'both' || article.for == 'rent'">
-                                <span class="d-inline-block bg-success text-white px-3 mb-3 property-offer-type rounded p-2">
+                                <span
+                                    class="d-inline-block bg-success text-white px-3 mb-3 property-offer-type rounded p-2">
                                     For rent
                                 </span>
                             </li>
@@ -85,5 +87,36 @@
         </div>
 
     </div>
+    <div class="col-12 mt-5">
+        <div class="site-section-title mb-5">
+            <h1 class="font-style">RELATED PROPERTIES</h1>
+            <div class="row mt-5">
+                <div class="w-100" *ngIf="relatedArticles.length == 0">
+                    <div class="col-12">
+                        <p class="alert alert-warning">There's no properties related to this.</p>
+                    </div>
+                </div>
+                <div *ngFor="let article of relatedArticles" class="col-lg-4" (click)="showDetailArticle(article.id)">
+                    <mat-card class="example-card bg-white text-muted">
+                        <img src="../../assets/hero_how_it_works_meal_plans.jpg" class="w-100 zoom">
+                        <h3>{{article.title}} </h3>
+
+                        <mat-card-content>
+                            <p>
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                {{article.address}}
+                            </p>
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <button class="btn btn-success bg-white text-success pl-4 pr-4 mr-1"> <i class="fa fa-star"
+                                    aria-hidden="true"></i>
+                                FAVORITE</button> <button class="btn btn-primary pl-4 pr-4 ">$ 270.000</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
 <app-footer></app-footer>

@@ -16,7 +16,10 @@ export class DetailArticleComponent implements OnInit {
   constructor(private adminService: AdminServiceService,private route: ActivatedRoute,private router: Router) { }
 
   ngOnInit(): void {
- 
+    this.takeArticleDetails();
+  }
+
+  takeArticleDetails(){
     this.routeSub = this.route.params.subscribe(params => {
       this.id = params['id'];
     });

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdminServiceService } from '../admin-service.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-create-article',
@@ -21,7 +22,9 @@ export class CreateArticleComponent implements OnInit {
     type: '',
     avalible: ''
   }
-  constructor(private formBuilder: FormBuilder, private adminService: AdminServiceService) { }
+  error: any = '';
+  errFlag: boolean = false;
+  constructor(private formBuilder: FormBuilder, private adminService: AdminServiceService,private router: Router) { }
 
   ngOnInit(): void {
 
@@ -44,8 +47,11 @@ export class CreateArticleComponent implements OnInit {
     formData.append('available', this.formData.avalible)
 
     this.adminService.createArticle(formData).subscribe(data => {
+      this.error = 'New article created';
+      this.errFlag  = false;
     }, error => {
-      console.log(error)
+      this.errFlag = true;
+      this.error = error.error.message;
     })
   }
 
