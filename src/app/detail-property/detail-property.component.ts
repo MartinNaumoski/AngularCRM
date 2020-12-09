@@ -37,6 +37,7 @@ export class DetailPropertyComponent implements OnInit {
     }); 
     this.adminService.getArticle(this.id).subscribe(data => {
       this.article = data.Article;
+      console.log(this.article)
     }, error => {
     })
   }

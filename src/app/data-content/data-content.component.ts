@@ -33,6 +33,7 @@ export class DataContentComponent implements OnInit {
   takeArticles() {
     this.adminServiceService.getArticles().subscribe(data => {
       this.articles = data.Articles;
+      console.log(this.articles)
     }, error => {
     })
   }

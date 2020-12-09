@@ -21,7 +21,7 @@ export class CreateArticleComponent implements OnInit {
     for: '',
     phone_number: '',
     type: '',
-    avalible: ''
+    available: ''
   }
   error: any = '';
   errFlag: boolean = false;
@@ -49,7 +49,7 @@ export class CreateArticleComponent implements OnInit {
     formData.append('phone_number', this.formData.phone_number)
     formData.append('filenames[]', this.selectedFile);
     formData.append('type', this.formData.type)
-    formData.append('available', this.formData.avalible)
+    formData.append('available', this.formData.available)
 
     this.adminService.createArticle(formData).subscribe(data => {
       this.errFlag  = false;
