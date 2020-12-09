@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminServiceService } from '../admin-service.service';
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-about-us',
   templateUrl: './about-us.component.html',
@@ -12,7 +14,7 @@ export class AboutUsComponent implements OnInit {
     title: '',
     body: ''
   };
-  constructor(private mainService: AdminServiceService) { }
+  constructor(private mainService: AdminServiceService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getAbousUsData()
@@ -28,10 +30,9 @@ export class AboutUsComponent implements OnInit {
 
   }
   updateAboutUs() {
-    console.log(this.body)
     this.mainService.updateAboutUs(this.body).subscribe(data => {
-      console.log(data)
-    });
+      data.Message == "You didnt change anything." ? this.toastr.warning(data.Message, 'Success!') : this.toastr.success(data.Message, 'Success!');
+    },err => {});
   }
   toogleSideBar(event: any) {
     let sideBar = document.getElementById("mySidebar");

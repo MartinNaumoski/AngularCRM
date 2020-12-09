@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminServiceService } from '../../app/admin-service.service';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-aricles',
   templateUrl: './aricles.component.html',
@@ -12,7 +14,10 @@ export class AriclesComponent implements OnInit {
   searchTerm = '';
   allTableData: any = [];
 
-  constructor(private adminService: AdminServiceService, private router: Router) { }
+  constructor(
+    private adminService: AdminServiceService,
+    private router: Router,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getArticles();
@@ -28,12 +33,11 @@ export class AriclesComponent implements OnInit {
   filterARticles() {
     let tempTableData: any = [];
     this.allTableData.forEach((element: any) => {
-      console.log(element)
-      if (element.title.includes(this.searchTerm)
-        || element.city.includes(this.searchTerm)
-        || element.type.includes(this.searchTerm)
-        || element.phonenumber.includes(this.searchTerm)
-        || element.address.includes(this.searchTerm)) {
+      if (element.title.toLowerCase().includes(this.searchTerm.toLocaleLowerCase())
+        || element.city.toLowerCase().includes(this.searchTerm.toLocaleLowerCase())
+        || element.type.toLowerCase().includes(this.searchTerm.toLocaleLowerCase())
+        || element.phonenumber.toLowerCase().includes(this.searchTerm.toLowerCase())
+        || element.address.toLowerCase().includes(this.searchTerm.toLocaleLowerCase())) {
         tempTableData.push(element);
       }
     });
@@ -44,10 +48,12 @@ export class AriclesComponent implements OnInit {
     window.open('property/' + id, "_blank")
   }
   deleteArticle(id: any) {
+    this.toastr.success('You deleted article!', 'Success!'); 
     this.adminService.deleteArticle(id).subscribe();
     this.getArticles();
-    window.location.reload();
+    // window.location.reload();
   }
+
   editArticle(id: any) {
     this.router.navigate(['edit-article/' + id]);
   }

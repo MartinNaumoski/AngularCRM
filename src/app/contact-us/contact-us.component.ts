@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UseExistingWebDriver } from 'protractor/built/driverProviders';
 import { AdminServiceService } from '../../app/admin-service.service'
 import { Router } from '@angular/router'
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-contact-us',
@@ -14,30 +15,36 @@ export class ContactUsComponent implements OnInit {
   allContactData:any = [];
   searchTerm:any = '';
 
-  constructor(private adminService: AdminServiceService, private router: Router) { }
+  constructor(
+    private adminService: AdminServiceService,
+    private router: Router,
+    private toastr: ToastrService
+    ) { }
 
   ngOnInit(): void {
     this.adminService.getContacts().subscribe(data => {
+      console.log(data)
       this.contactData = data["Contact-Us"];
       this.allContactData = this.contactData;
-      console.log(this.allContactData)
     })
   }
   viewDetails(id: any) {
     this.router.navigate(['contact' + '/' + id]);
   }
   deleteContact(id: any) {
-    //this.adminService.deleteContact(id).subscribe();
+    //this.adminService.deleteContact(id).subscribe(data => {
+      //this.toastr.success('You deleted contact!', 'Success!')
+    //});
     alert("NE JA POVIKVI POSO EDNA E SAMO KE TI SE IZBRISHIT!");
     alert("INACE NAPRAENO SI E SVE!");
   }
   filterContacts() {
     let tempTableData: any = [];
     this.allContactData.forEach((element:any) => {
-      if (element.subject.includes(this.searchTerm)
-        || element.name.includes(this.searchTerm)
-        || element.email.includes(this.searchTerm)
-        || element.created_at.includes(this.searchTerm)) {
+      if (element.subject.toLowerCase().includes(this.searchTerm.toLowerCase())
+        || element.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+        || element.email.toLowerCase().includes(this.searchTerm.toLowerCase())
+        || element.created_at.toLowerCase().includes(this.searchTerm.toLowerCase())){
         tempTableData.push(element);
       }
     });

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AdminServiceService } from '../admin-service.service';
 import { ActivatedRoute } from '@angular/router'
 import { Subscription } from 'rxjs';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-article',
@@ -10,17 +12,37 @@ import { Subscription } from 'rxjs';
 })
 export class EditArticleComponent implements OnInit {
   private routeSub!: Subscription;
+  selectedFile: File;
   id = 0;
   article:any = [];
-  constructor(private adminService: AdminServiceService,private route: ActivatedRoute) { }
+  constructor(
+    private adminService: AdminServiceService,
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder,
+    private toastr: ToastrService
+    ) { }
 
   ngOnInit(): void {
     this.takeArticleId();
   }
+  onFileChanged(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
   updateArticle(){
-    console.log(this.article);
-    this.adminService.editArticle(this.article,this.id).subscribe(data => {
-      console.log(data)
+    const formData = new FormData();
+    formData.append('title', this.article.title);
+    formData.append('body', this.article.body);
+    formData.append('price', this.article.price);
+    formData.append('address', this.article.address)
+    formData.append('city', this.article.city)
+    formData.append('for', this.article.for)
+    formData.append('phone_number', this.article.phone_number)
+    formData.append('filenames[]', this.selectedFile);
+    formData.append('type', this.article.type)
+    formData.append('available', this.article.available);
+    
+    this.adminService.editArticle(formData,this.id).subscribe(data => {
+      this.toastr.info(data.Message)
     },error => {
       console.log(error)
     });
@@ -31,7 +53,7 @@ export class EditArticleComponent implements OnInit {
     }); 
     this.adminService.getArticle(this.id).subscribe(data => {
       this.article = data.Article;
-      console.log(this.article);
+
     }, error => {
     })
   }

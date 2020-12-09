@@ -65,6 +65,7 @@
         <div class="col-lg-4 mb-4 mb-md-0">
             <p class="text-center">Type</p>
             <select class="form-control" id="sel1" [(ngModel)]="searchQuery.type">
+                <option value="">All</option>
                 <option value="1+1">1+1</option>
                 <option value="2+1">2+1</option>
                 <option value="3+1">3+1</option>
@@ -144,12 +145,15 @@
                         <i class="fa fa-map-marker" aria-hidden="true"></i>
                         {{article.address}}
                     </p>
+                    <span class="property-specs">Type</span>
+                    <br/>
+                    <span class="property-specs-number">{{article.type}}</span>
                 </mat-card-content>
-                <mat-card-actions>
+                <!-- <mat-card-actions>
                     <button class="btn btn-success bg-white text-success pl-4 pr-4 mr-1"> <i class="fa fa-star"
                             aria-hidden="true"></i>
                         FAVORITE</button> <button class="btn btn-primary pl-4 pr-4 ">$ 270.000</button>
-                </mat-card-actions>
+                </mat-card-actions> -->
             </mat-card>
         </div>
         <!-- <div class="col-lg-4">

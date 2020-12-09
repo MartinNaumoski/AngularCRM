@@ -35,6 +35,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ContactComponent } from './contact/contact.component';
 import { DetailPropertyComponent } from './detail-property/detail-property.component';  
 
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +70,8 @@ import { DetailPropertyComponent } from './detail-property/detail-property.compo
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    ToastrModule.forRoot(),
   ],
   providers: [AuthGuard, {
     provide: HTTP_INTERCEPTORS,

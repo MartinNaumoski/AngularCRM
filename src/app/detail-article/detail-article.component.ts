@@ -25,7 +25,6 @@ export class DetailArticleComponent implements OnInit {
     });
     this.adminService.getDetailArticle(this.id).subscribe(data=> {
       this.articleData = data.Article;
-      console.log(data)
     },error => {
     })
   }

@@ -12,8 +12,8 @@ import { AdminServiceService } from '../admin-service.service';
 export class DataContentComponent implements OnInit {
 
   searchQuery: any = {
-    price_form: '',
-    price_to: '',
+    price_form: 0,
+    price_to: 1000,
     offer_types: '',
     city: '',
     type: ''
@@ -34,7 +34,6 @@ export class DataContentComponent implements OnInit {
     this.adminServiceService.getArticles().subscribe(data => {
       this.articles = data.Articles;
     }, error => {
-      console.log(error)
     })
   }
   showDetailArticle(id: any) {
@@ -47,7 +46,6 @@ export class DataContentComponent implements OnInit {
       console.log(this.searchData)
       this.searchData ? this.tempFlag = true : false;
     }, error => {
-      console.log(error)
     });
   }
 

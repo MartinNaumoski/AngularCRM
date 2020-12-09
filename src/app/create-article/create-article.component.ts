@@ -3,6 +3,7 @@ import { AdminServiceService } from '../admin-service.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router'
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-create-article',
@@ -24,7 +25,11 @@ export class CreateArticleComponent implements OnInit {
   }
   error: any = '';
   errFlag: boolean = false;
-  constructor(private formBuilder: FormBuilder, private adminService: AdminServiceService,private router: Router) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private adminService: AdminServiceService,
+    private router: Router,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
 
@@ -47,12 +52,12 @@ export class CreateArticleComponent implements OnInit {
     formData.append('available', this.formData.avalible)
 
     this.adminService.createArticle(formData).subscribe(data => {
-      this.error = 'New article created';
       this.errFlag  = false;
     }, error => {
       this.errFlag = true;
       this.error = error.error.message;
     })
+    !this.errFlag ? this.toastr.success('You created article!', 'Success!') : '';
   }
 
   toogleSideBar(event: any) {
