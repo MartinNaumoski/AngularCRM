@@ -23,6 +23,7 @@ export class DetailPropertyComponent implements OnInit {
   takeRelatedArticles(){
     this.adminService.getArticle(this.id).subscribe(data => {
       this.relatedArticles = data["Related-Article"];
+      console.log(this.relatedArticles)
     }, error => {
     })
   }
@@ -37,7 +38,9 @@ export class DetailPropertyComponent implements OnInit {
     }); 
     this.adminService.getArticle(this.id).subscribe(data => {
       this.article = data.Article;
-      // this.pictureUrl = 'realestate-task.draft2017.com/storage//photos/' + this.article.photo[0].photo;
+      // 'realestate-task.draft2017.com/storage//photos/' + 
+      this.pictureUrl =this.article.photo[0].photo;
+      console.log(this.pictureUrl)
     }, error => {
     })
   }
