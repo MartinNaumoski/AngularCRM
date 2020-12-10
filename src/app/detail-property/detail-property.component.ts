@@ -40,7 +40,6 @@ export class DetailPropertyComponent implements OnInit {
       this.article = data.Article;
       // 'realestate-task.draft2017.com/storage//photos/' + 
       this.pictureUrl =this.article.photo[0].photo;
-      console.log(this.pictureUrl)
     }, error => {
     })
   }

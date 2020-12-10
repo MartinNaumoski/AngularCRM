@@ -37,27 +37,26 @@
 <div data-ride="carousel" style="position: relative; z-index: -1;">
     <div class="carousel-inner" role="listbox">
         <div class="carousel-item active">
-            <img class="w-75 opac-0" src="https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg">
+            <img class="w-100" src="{{pictureUrl}}">
             <div class="carousel-content">
-                <div class="row">
-                    <div class="col-7">
-                        <h3 class="font-weight-bold">Lorem Ipsum is simply dummy text of the printing and typesetting
-                            industry. </h3>
-                        <p class="opaci-0">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                            galley of type and scrambled it to make a type specimen book. It has survived not only five
-                            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-                            passages, and more recently with desktop publishing software like Aldus PageMaker including
-                            versions of Lorem Ipsum
-                        </p>
-                        <button class="btn btn-success font-weight-bold text-uppercase">View details</button>
-                        <button class="btn btn-link text-light font-weight-bold text-uppercase">See all
-                            apartments</button>
+                <div class="col-md-12">
+                    <div class="">
+                        <div *ngIf="id != undefind" class="font-weight-bold h2 text-success font-weight-bold">{{articleData.views}} Views </div>
+                        <h1 *ngIf="id != undefind"  class="mb-2 text-uppercase" style="font-size:50px;">
+                            {{articleData.city}}
+                        </h1>
+                        <div *ngIf="id != undefind" class="font-weight-bold h2 text-success font-weight-bold">{{articleData.price}}$ </div>
+
+                        <!-- <div class="mt-3">
+                            <button class="btn btn-success font-weight-bold text-uppercase">View details</button>
+                            <button class="btn btn-link text-light font-weight-bold text-uppercase">See all
+                                apartments</button>
+                        </div> -->
+
+
                     </div>
-                    <div class="col-5">
-                        <img src="../../assets/logo.png" class="img-roundet">
+                    <div class="">
+                        <!-- <img src="../../assets/logo.png" class="img-roundet"> -->
                     </div>
                 </div>
 
