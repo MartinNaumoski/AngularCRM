@@ -35,7 +35,6 @@ export class ContactUsComponent implements OnInit {
     this.adminService.deleteContact(id).subscribe(data => {
       this.toastr.success('You deleted contact!', 'Success!')
     });
-
   }
   filterContacts() {
     let tempTableData: any = [];

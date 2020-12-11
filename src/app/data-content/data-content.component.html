@@ -112,6 +112,20 @@
             <button type="button" class="btn btn-success w-100 " (click)="makeSearchQuery()">Search</button>
         </div>
     </div>
+    <div class="row" >
+        <div class="col-md-12" >
+            <div class="view-options bg-white py-3 px-3 d-md-flex align-items-center">
+                <div class="mr-auto ml-3">
+                    <a class="icon-view view-module mr-4" (click)="toogleShowFlags()">
+                        <i class="material-icons text-dark">view_module</i>
+                    </a>
+                    <a class="icon-view view-module" (click)="toogleShowFlags()">
+                        <i class="material-icons text-dark">view_list</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 
@@ -134,7 +148,7 @@
         a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
         remaining essentially unchanged. I
     </p> -->
-    <div class="row mt-5">
+    <div class="row mt-5" *ngIf="cardFlag">
         <div *ngFor="let article of articles" class="col-lg-4" (click)="showDetailArticle(article.id)">
             <mat-card class="example-card bg-white text-muted">
                 <img src="../../assets/hero_how_it_works_meal_plans.jpg" class="w-100 zoom">
@@ -196,6 +210,29 @@
             </mat-card>
         </div> -->
     </div>
+    <div class="row mt-5" *ngIf="rowFlag">
+        <div *ngFor="let article of articles" class="col-md-12 p-4"  style="background-color: whitesmoke;" (click)="showDetailArticle(article.id)">
+            <mat-card class="example-card bg-white text-muted">
+                <img src="../../assets/hero_how_it_works_meal_plans.jpg" class="w-50 zoom">
+                <h3>{{article.title}} </h3>
+
+                <mat-card-content>
+                    <p>
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        {{article.address}}
+                    </p>
+                    <span class="property-specs">Type</span>
+                    <br/>
+                    <span class="property-specs-number">{{article.type}}</span>
+                </mat-card-content>
+                <!-- <mat-card-actions>
+                    <button class="btn btn-success bg-white text-success pl-4 pr-4 mr-1"> <i class="fa fa-star"
+                            aria-hidden="true"></i>
+                        FAVORITE</button> <button class="btn btn-primary pl-4 pr-4 ">$ 270.000</button>
+                </mat-card-actions> -->
+            </mat-card>
+        </div>
+        </div>
 </div>
 
 <!-- <div class="container mt-5">

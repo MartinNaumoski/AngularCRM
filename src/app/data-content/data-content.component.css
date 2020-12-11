@@ -92,7 +92,10 @@ fieldset{
     transition: 0.5s ease-in-out;
   }
   
-  .zoom:hover {
-    transform: scale(1.09); 
+.zoom:hover {
+   transform: scale(1.09); 
+   cursor: pointer;
+}
+.material-icons:hover{
     cursor: pointer;
-  }
+}

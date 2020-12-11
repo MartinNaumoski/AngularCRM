@@ -18,6 +18,8 @@ export class DataContentComponent implements OnInit {
     city: '',
     type: ''
   };
+  rowFlag:boolean = false;
+  cardFlag:boolean = true;
   articles: any = [];
   searchData: any = [];
   tempFlag: boolean = false;
@@ -39,6 +41,10 @@ export class DataContentComponent implements OnInit {
   }
   showDetailArticle(id: any) {
     this.router.navigate(['detail-property/' + id])
+  }
+  toogleShowFlags(){
+    this.cardFlag = !this.cardFlag;
+    this.rowFlag = !this.rowFlag;
   }
   makeSearchQuery() {
     this.dataContentService.search(this.searchQuery).subscribe(data => {

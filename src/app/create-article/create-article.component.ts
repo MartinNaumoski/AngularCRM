@@ -50,14 +50,36 @@ export class CreateArticleComponent implements OnInit {
     formData.append('filenames[]', this.selectedFile);
     formData.append('type', this.formData.type)
     formData.append('available', this.formData.available)
+    this.checkRequiredFields(this.formData);
+    if(this.checkRequiredFields(this.formData)){
+      this.adminService.createArticle(formData).subscribe(data => {
+        this.errFlag  = false;
+        console.log(data)
+      }, error => {
+        this.errFlag = true;
+        this.error = error.error.message;
+      })
+      !this.errFlag ? this.toastr.success('You created article!', 'Success!') : '';
+    }
+    else{
+      this.toastr.error('Fill all of the fields!','Error');
+    }
 
-    this.adminService.createArticle(formData).subscribe(data => {
-      this.errFlag  = false;
-    }, error => {
-      this.errFlag = true;
-      this.error = error.error.message;
-    })
-    !this.errFlag ? this.toastr.success('You created article!', 'Success!') : '';
+  }
+  checkRequiredFields(formData: any):boolean{
+    if( formData.address != '' &&
+        formData.available != '' &&
+        formData.body != '' &&
+        formData.for != '' &&
+        formData.phone_number != '' &&
+        formData.price != '' &&
+        formData.title != '' &&
+        formData.type != ''){
+          return true;
+        }
+        else{
+          return false;
+        }
   }
 
   toogleSideBar(event: any) {
