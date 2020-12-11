@@ -32,11 +32,10 @@ export class ContactUsComponent implements OnInit {
     this.router.navigate(['contact' + '/' + id]);
   }
   deleteContact(id: any) {
-    //this.adminService.deleteContact(id).subscribe(data => {
-      //this.toastr.success('You deleted contact!', 'Success!')
-    //});
-    alert("NE JA POVIKVI POSO EDNA E SAMO KE TI SE IZBRISHIT!");
-    alert("INACE NAPRAENO SI E SVE!");
+    this.adminService.deleteContact(id).subscribe(data => {
+      this.toastr.success('You deleted contact!', 'Success!')
+    });
+
   }
   filterContacts() {
     let tempTableData: any = [];

@@ -6,14 +6,17 @@ import { AdminServiceService } from '../../app/admin-service.service'
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
-  styleUrls: ['./carousel.component.css']
+  styleUrls: ['./carousel.component.css'],
 })
 export class CarouselComponent implements OnInit {
   articleData: any = [];
   private routeSub!: Subscription;
   id = 0;
   pictureUrl: any = undefined;
-  constructor(private route: ActivatedRoute, private adminService: AdminServiceService) { }
+
+  constructor(private route: ActivatedRoute, private adminService: AdminServiceService) {
+
+   }
 
   ngOnInit(): void {
     this.takeId();

@@ -89,6 +89,7 @@ fieldset{
 .zoom {
     transition: transform .2s; 
     margin: 0 auto;
+    transition: 0.5s ease-in-out;
   }
   
   .zoom:hover {
