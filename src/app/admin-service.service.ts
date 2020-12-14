@@ -53,7 +53,12 @@ export class AdminServiceService {
     return this.http.get(this.baseUrl + '/api/article/property/' + id)
   }
   editArticle(body: FormData, id: any): Observable<any> {
-    return this.http.put(this.baseUrl + '/api/update-article/' + id, body)
+    // const httpHeaders: HttpHeaders = new HttpHeaders({
+    //   'X-XSRF-TOKEN': 'XSRF-TOKEN=eyJpdiI6ImduYUVmMG1NdkF1WUFcL0taSERwcWd3PT0iLCJ2YWx1ZSI6ImxYUndLQ0E1b3ROR3pQZ0txUGJ6XC9VQnB0aUJZXC85RlRqV3dUUWNIWHRKU2Y2NndQXC9mY1VoMTR2Sm1zRmRjV3kiLCJtYWMiOiJhMjAxZmU4Y2Q4OGNkOGJhMmU0ZGVjYTViMzFmMWIxNzM4OWMyZTUwNmU3ZDUwOTFkMzhkNjdhMTI0ZTU1M2Q4In0%3D',
+    //   'Access-Control-Allow-Headers': "X-CSRF-Token, Content-Type",
+    //    'Content-Type': 'application/json',
+    // });
+    return this.http.put<any>('http://realestate-task.draft2017.com/update-article/' + id, body);
   }
 
 }

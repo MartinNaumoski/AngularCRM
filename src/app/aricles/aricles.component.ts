@@ -49,8 +49,10 @@ export class AriclesComponent implements OnInit {
   }
   deleteArticle(id: any) {
     this.toastr.success('You deleted article!', 'Success!'); 
-    this.adminService.deleteArticle(id).subscribe();
-    this.getArticles();
+    this.adminService.deleteArticle(id).subscribe(data => {
+      console.log(data)
+      this.getArticles();
+    });
     // window.location.reload();
   }
 

@@ -34,6 +34,7 @@ import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
 import { ContactComponent } from './contact/contact.component';
 import { DetailPropertyComponent } from './detail-property/detail-property.component';  
+import { HttpClientXsrfModule} from "@angular/common/http";
 
 import { ToastrModule } from 'ngx-toastr';
 @NgModule({
@@ -72,6 +73,8 @@ import { ToastrModule } from 'ngx-toastr';
     ReactiveFormsModule,
     CommonModule,
     ToastrModule.forRoot(),
+    HttpClientModule,
+ 
   ],
   providers: [AuthGuard, {
     provide: HTTP_INTERCEPTORS,

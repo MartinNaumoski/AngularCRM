@@ -29,17 +29,20 @@ export class EditArticleComponent implements OnInit {
     this.selectedFile = event.target.files[0];
   }
   updateArticle(){
+    console.log(localStorage.getItem('token'))
     const formData = new FormData();
+    // formData.append('_method','PUT')
+    // formData.append('_token','OMFncXlocBFtpxS63rHkj80fiySmDl7iLsDU2n4f');
     formData.append('title', this.article.title);
     formData.append('body', this.article.body);
-    formData.append('price', this.article.price);
-    formData.append('address', this.article.address)
     formData.append('city', this.article.city)
+    formData.append('address', this.article.address)
     formData.append('for', this.article.for)
-    formData.append('phone_number', this.article.phone_number)
-    formData.append('filenames[]', this.selectedFile);
-    formData.append('type', this.article.type)
+    formData.append('price', this.article.price);
+    formData.append('type', this.article.type);
     formData.append('available', this.article.available);
+    formData.append('phonenumber', this.article.phone_number)
+    formData.append('filenames[]', this.selectedFile);
     
     this.adminService.editArticle(formData,this.id).subscribe(data => {
       this.toastr.info(data.Message)
